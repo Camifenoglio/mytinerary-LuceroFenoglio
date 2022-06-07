@@ -65,12 +65,14 @@ const NavBar = () => {
                     {/* box hamburguesa */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "violet" }}>
                         <IconButton
+                        
                             size="large"
                             aria-label="account of current user"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
                             color="inherit"
+                            sx={{padding:0}}
                         >
                             <MenuIcon />
                         </IconButton>
