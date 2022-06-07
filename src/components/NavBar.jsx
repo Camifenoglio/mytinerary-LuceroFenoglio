@@ -12,11 +12,12 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import "../styles/App.css";
+import {Link as LinkRouter} from "react-router-dom";
 
 
 
-const pages = ['Home', 'Cities'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = [{name:'Home', to: '/'}, {name:'Cities', to: "/cities"}];
+const settings = ['Profile', 'Account', 'Log In', 'Logout'];
 
 const NavBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -38,8 +39,8 @@ const NavBar = () => {
     };
 
     return (
-        <AppBar position="static">
-            <Container maxWidth="xl" sx={{ backgroundColor: "black"}}>
+        <AppBar position="static" sx={{ backgroundColor: "black"}}>
+            <Container maxWidth="xl" >
                 <Toolbar disableGutters>
                     <Typography
                         variant="h6"
@@ -50,7 +51,7 @@ const NavBar = () => {
                             display: { xs: 'none', md: 'flex' },
                             alignItems: "center",
                             fontFamily: 'Allura',
-                            fontSize: "2.7rem",
+                            fontSize: "2.5rem",
                             fontWeight: 500,
                             letterSpacing: '.3rem',
                             color: 'violet',
@@ -58,8 +59,8 @@ const NavBar = () => {
                         }}
                     >
                         {/* LOGO */}
-                        <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{ height: "3.5rem" }} />
-                        MiTinerary
+                        <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{ height: "3.3rem" }} />
+                        Mi Tinerary
                     </Typography>
                     {/* box hamburguesa */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "violet" }}>
@@ -91,10 +92,12 @@ const NavBar = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                            {pages.map((page,index) => (
+                                <LinkRouter to={page.to} className="botonLink" key={index} onClick={handleCloseNavMenu}>
+                                <MenuItem>
+                                    <Typography sx= {{fontFamily:'Vollkorn', color: "white"}} textAlign="center">{page.name}</Typography>
                                 </MenuItem>
+                                </LinkRouter>
                             ))}
                         </Menu>
                     </Box>
@@ -104,40 +107,37 @@ const NavBar = () => {
                         component="a"
                         href=""
                         sx={{
-                            mr: 2,
                             display: { xs: 'flex', md: 'none' },
                             alignItems: "center",
                             flexGrow: 1,
                             fontFamily: 'Allura',
-                            fontSize: "2.7rem",
+                            fontSize: "2rem",
                             fontWeight: 500,
-                            letterSpacing: '.3rem',
+                            letterSpacing: '.2rem',
                             color: 'violet',
                             textDecoration: 'none',
                         }}
                     >
                         {/* LOGO RESPONSIVE */}
-                        <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{ height: "3.5rem" }} />
-                        MiTinerary
+                        <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{ height: "2.2rem" }} />
+                        Mi Tinerary
                     </Typography>
                     {/* link paginas home/cities en md */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 0, color: 'white', display: 'block', fontFamily: 'Vollkorn', fontSize: "1.2rem", mt: 0.5, py: 0 }}
-                            >
-                                {page}
+                        {pages.map((page,index) => (
+                            <LinkRouter to={page.to} className="botonLink" key={index}
+                            onClick={handleCloseNavMenu}>
+                            <Button sx={{ my: 0, color: 'white', display: 'block', fontFamily: 'Vollkorn', fontSize: "1.15rem", mt: 0.5, ml:1, py: 0 }}>
+                              {page.name}
                             </Button>
+                            </LinkRouter>
                         ))}
                     </Box>
-
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 {/* iconologueo */}
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" sx={{ backgroundColor: "#7F19A6", color: "black" }} />
+                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" sx={{ backgroundColor: "#7F19A6", color: "black", height: "6vh", width: "6vh" }} />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -158,7 +158,7 @@ const NavBar = () => {
                         >
                             {settings.map((setting) => (
                                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
+                                    <Typography textAlign="center" sx={{fontFamily:'Vollkorn', color: "white"}}>{setting}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>

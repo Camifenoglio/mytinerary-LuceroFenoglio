@@ -2,10 +2,18 @@
 padding:0;
 box-sizing: border-box;}
 
+.botonLink {
+    text-decoration: none;
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list{
+    background-color: black;
+}
+
 .imgPortada { 
     background-image: url(/public/assets/sunset.jpg);
     background-size: cover;
-    background-position-y: -6.5rem;
+    /* background-position-y: -6.5rem; */
     height:90vh;
     display: flex;
     flex-direction: column;
