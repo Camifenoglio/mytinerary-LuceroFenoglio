@@ -1,3 +1,44 @@
 *{margin:0;
 padding:0;
 box-sizing: border-box;}
+
+.imgPortada { 
+    background-image: url(/public/assets/sunset.jpg);
+    background-size: cover;
+    background-position-y: -6.5rem;
+    height:90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+.tituloPortada {
+    font-family: "Allura";
+    color: white;
+    font-size: 10vh;
+    font-weight: 500;
+}
+
+.parrafoPortada {
+    font-family: "Allura";
+    color: white;
+    font-size: 6vh;
+    font-weight: 400;
+    margin-top: 2vh;
+    width: 40vw;
+    text-align: center;
+}
+
+.botonCities {
+ border: 2px solid white;
+ border-radius: 20px;
+ background-color: transparent;
+ padding: 0.5rem;
+ width: 25vh;
+ font-family: "Vollkorn";
+ font-weight: 500;
+ color: white;
+ font-size: 5vh;
+ margin-top: 3vh;
+}  

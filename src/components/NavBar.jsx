@@ -12,7 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import "../styles/App.css";
-import Logo from '../assets/logo.png'
+
+
 
 const pages = ['Home', 'Cities'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -38,7 +39,7 @@ const NavBar = () => {
 
     return (
         <AppBar position="static">
-            <Container maxWidth="xl" sx={{ backgroundColor: "black" }}>
+            <Container maxWidth="xl" sx={{ backgroundColor: "black"}}>
                 <Toolbar disableGutters>
                     <Typography
                         variant="h6"
@@ -57,7 +58,7 @@ const NavBar = () => {
                         }}
                     >
                         {/* LOGO */}
-                        <img src={Logo} alt="logo" style={{ height: "3.5rem" }} />
+                        <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{ height: "3.5rem" }} />
                         MiTinerary
                     </Typography>
                     {/* box hamburguesa */}
@@ -116,7 +117,7 @@ const NavBar = () => {
                         }}
                     >
                         {/* LOGO RESPONSIVE */}
-                        <img src={Logo} alt="logo" style={{ height: "3.5rem" }} />
+                        <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{ height: "3.5rem" }} />
                         MiTinerary
                     </Typography>
                     {/* link paginas home/cities en md */}

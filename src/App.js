@@ -1,13 +1,17 @@
+import React from 'react'
 import '../src/styles/App.css';
-import Main from "./components/Main"
 import NavBar from './components/NavBar';
+import {Routes,Route} from 'react-router-dom';
+import Index from './pages/index.jsx'
+
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-
-      <Main></Main>
+      <Routes>
+        <Route path="/" element={<Index />}/>
+      </Routes>
     </div>
   );
 }
