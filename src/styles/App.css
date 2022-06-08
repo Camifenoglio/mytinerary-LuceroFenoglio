@@ -1,2 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Allura&family=Vollkorn&display=swap');
 
+*{margin:0;
+padding:0;
+box-sizing: border-box;}
+
+.botonLink {
+    text-decoration: none;
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list{
+    background-color: black;
+}
+
+.imgPortada { 
+    background-image: url(/public/assets/sunset.jpg);
+    background-size: cover;
+    height:90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+.tituloPortada {
+    font-family: "Allura";
+    color: white;
+    font-size: 10vh;
+    font-weight: 500;
+}
+
+.parrafoPortada {
+    font-family: "Allura";
+    color: white;
+    font-size: 6vh;
+    font-weight: 400;
+    margin-top: 2vh;
+    width: 40vw;
+    text-align: center;
+}
+
+.botonCities {
+ border: 2px solid white;
+ border-radius: 20px;
+ background-color: transparent;
+ padding: 0.5rem;
+ width: 25vh;
+ font-family: "Vollkorn";
+ font-weight: 500;
+ color: white;
+ font-size: 5vh;
+ margin-top: 3vh;
+}  
+
+.nombreCiudad {
+text-align: center;
+font-family: "Vollkorn";
+font-weight: 500;
+font-size: 3.5vh;
+}
+.tituloCarrousel {
+    text-align: center;
+    color: black;
+}
+
+.FooterContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #6539D3;
+}
+
+.RedesContainer{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
