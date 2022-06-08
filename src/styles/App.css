@@ -51,16 +51,64 @@ box-sizing: border-box;}
  font-size: 5vh;
  margin-top: 3vh;
 }  
+.botonCities:link,
+.botonCities:visited {
+ text-transform: uppercase;
+ text-decoration: none;
+ color: rgb(27, 27, 27);
+ padding: 10px 30px;
+ border: 1px solid;
+ border-radius: 1000px;
+ display: inline-block;
+ transition: all .2s;
+ position: relative;
+}
+
+.botonCities:hover {
+ transform: translateY(-5px);
+ box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+}
+
+.botonCities:active {
+ transform: translateY(-3px);
+}
+
+.botonCities::after {
+ content: "";
+ display: inline-block;
+ height: 100%;
+ width: 100%;
+ border-radius: 100px;
+ top: 0;
+ left: 0;
+ position: absolute;
+ z-index: -1;
+ transition: all .3s;
+}
+
+.botonCities:hover::after {
+ background-color: rgb(0, 238, 255);
+ transform: scaleX(1.4) scaleY(1.5);
+ opacity: 0;
+}
 
 .nombreCiudad {
 text-align: center;
 font-family: "Vollkorn";
+color:#7F19A6;
 font-weight: 500;
 font-size: 3.5vh;
 }
 .tituloCarrousel {
     text-align: center;
-    color: black;
+    color: #7F19A6;
+    font-family: "Allura";
+    font-size: 5vh;
+    font-weight: 400;
+}
+
+.CarrouselContainer {
+        background-color: #FFFFFF;
 }
 
 .FooterContainer {
@@ -68,8 +116,20 @@ font-size: 3.5vh;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    background-color: #6539D3;
+    background-color: black;
 }
+@media (max-width: 425px) {
+    .FooterContainer {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding-top: 2vh;
+    }
+    .botonRedes{
+        display: flex;
+        flex-direction: row;
+    }
+  }
 
 .RedesContainer{
     display: flex;
@@ -77,3 +137,10 @@ font-size: 3.5vh;
     gap: 2rem;
 }
 
+.CiudadesContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 73vh;
+    background-color: #7e19a69a;
+}

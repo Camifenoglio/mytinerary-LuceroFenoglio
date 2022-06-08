@@ -2,8 +2,10 @@ import React from 'react'
 import '../src/styles/App.css';
 import NavBar from './components/NavBar';
 import {Routes,Route} from 'react-router-dom';
-import Index from './pages/index.jsx';
+import Index from './pages/Index.jsx';
 import Footer from './components/Footer'
+import Ciudades from './pages/Ciudades';
+import Error from './pages/Error'
 
 
 function App() {
@@ -12,6 +14,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Index />}/>
+        <Route path="/Cities" element = {<Ciudades />}/>
+        <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
     </div>

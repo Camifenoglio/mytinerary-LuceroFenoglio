@@ -5,12 +5,12 @@ import {Link as LinkRouter} from "react-router-dom";
 function Portada(){
     return (
         <div className="imgPortada">
-            <h1 className="tituloPortada">Mi Tinerary</h1>
+            <h1 className="tituloPortada">MiTinerary</h1>
             <h2 className= "parrafoPortada">Find your perfect trip, designed by insiders who know and love their cities!
             </h2>
             <LinkRouter to="/cities" className="botonLink">
             <button className="botonCities">
-                Cities
+                Let's go!
             </button>
             </LinkRouter>
 

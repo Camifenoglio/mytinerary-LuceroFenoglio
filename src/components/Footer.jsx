@@ -15,18 +15,18 @@ function Footer() {
         <>
             <div className="FooterContainer">
                 <div>
-                <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{ height: "3.3rem" }} />
+                <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{ height: "4rem" }} />
                 </div>
                 <div className="RedesContainer">
-                    <FacebookIcon sx={{color: "primary"}} />
-                    <InstagramIcon sx={{color: "primary"}} />
-                    <WhatsAppIcon sx={{color: "primary"}} />
+                    <FacebookIcon sx={{color: "white", fontSize: "2rem"}} />
+                    <InstagramIcon sx={{color: "white", fontSize: "2rem"}} />
+                    <WhatsAppIcon sx={{color: "white", fontSize: "2rem"}} />
                 </div>
-                <div>
+                <div className="botonRedes">
                     {pages.map((page, index) => (
-                        <LinkRouter to={page.to} className="botonLink" key={index} >
-                            <MenuItem>
-                                <Typography sx={{ fontFamily: 'Vollkorn', color: "black" }} textAlign="center">{page.name}</Typography>
+                        <LinkRouter to={page.to}  key={index} className= "botonLink" >
+                            <MenuItem >
+                                <Typography sx={{ fontFamily: 'Vollkorn', color: "#B329F8", fontSize:"3vh", padding: "0.5rem" }}  textAlign="center">{page.name}</Typography>
                             </MenuItem>
                         </LinkRouter>
                     ))}

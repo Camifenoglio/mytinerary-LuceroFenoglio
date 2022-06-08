@@ -60,7 +60,7 @@ const NavBar = () => {
                     >
                         {/* LOGO */}
                         <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{ height: "3.3rem" }} />
-                        Mi Tinerary
+                        MiTinerary
                     </Typography>
                     {/* box hamburguesa */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "violet" }}>
@@ -122,7 +122,7 @@ const NavBar = () => {
                     >
                         {/* LOGO RESPONSIVE */}
                         <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{ height: "2.2rem" }} />
-                        Mi Tinerary
+                        MiTinerary
                     </Typography>
                     {/* link paginas home/cities en md */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
