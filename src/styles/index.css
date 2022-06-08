@@ -13,7 +13,6 @@ box-sizing: border-box;}
 .imgPortada { 
     background-image: url(/public/assets/sunset.jpg);
     background-size: cover;
-    /* background-position-y: -6.5rem; */
     height:90vh;
     display: flex;
     flex-direction: column;
@@ -50,3 +49,10 @@ box-sizing: border-box;}
  font-size: 5vh;
  margin-top: 3vh;
 }  
+
+.nombreCiudad {
+text-align: center;
+font-family: "Vollkorn";
+font-weight: 500;
+font-size: 3.5vh;
+}
