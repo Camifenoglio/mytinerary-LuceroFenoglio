@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Ciudades() {
+function Cities() {
     return (
         <div className='CiudadesContainer'>
         <img src={process.env.PUBLIC_URL+"/assets/underconstruccion.png"} alt="pagina en contruccion" style={{height: "60vh"}} />
@@ -8,4 +8,4 @@ function Ciudades() {
     )
 }
 
-export default Ciudades
+export default Cities

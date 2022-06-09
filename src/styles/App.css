@@ -27,32 +27,37 @@ box-sizing: border-box;}
     color: white;
     font-size: 10vh;
     font-weight: 500;
+    text-shadow: 2px 2px 3px rgb(248, 244, 6);
 }
 
 .parrafoPortada {
     font-family: "Allura";
+    background-color: #f47569a2;
+    border-radius: 15px;
     color: white;
     font-size: 6vh;
     font-weight: 400;
     margin-top: 2vh;
     width: 40vw;
     text-align: center;
+    text-shadow: 2px 2px 3px rgb(15, 15, 15);
 }
 
-.botonCities {
+.botonCiudades {
  border: 2px solid white;
  border-radius: 20px;
  background-color: transparent;
  padding: 0.5rem;
  width: 25vh;
  font-family: "Vollkorn";
+ text-shadow: 2px 2px 3px rgb(15, 15, 15);
  font-weight: 500;
  color: white;
  font-size: 5vh;
  margin-top: 3vh;
 }  
-.botonCities:link,
-.botonCities:visited {
+.botonCiudades:link,
+.botonCiudades:visited {
  text-transform: uppercase;
  text-decoration: none;
  color: rgb(27, 27, 27);
@@ -64,16 +69,16 @@ box-sizing: border-box;}
  position: relative;
 }
 
-.botonCities:hover {
+.botonCiudades:hover {
  transform: translateY(-5px);
  box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
 }
 
-.botonCities:active {
+.botonCiudades:active {
  transform: translateY(-3px);
 }
 
-.botonCities::after {
+.botonCiudades::after {
  content: "";
  display: inline-block;
  height: 100%;
@@ -86,7 +91,7 @@ box-sizing: border-box;}
  transition: all .3s;
 }
 
-.botonCities:hover::after {
+.botonCiudades:hover::after {
  background-color: rgb(0, 238, 255);
  transform: scaleX(1.4) scaleY(1.5);
  opacity: 0;
@@ -103,7 +108,7 @@ font-size: 3.5vh;
     text-align: center;
     color: #7F19A6;
     font-family: "Allura";
-    font-size: 5vh;
+    font-size: 6vh;
     font-weight: 400;
 }
 

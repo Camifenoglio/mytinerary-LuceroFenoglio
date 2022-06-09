@@ -1,11 +1,11 @@
 import React from "react"
-import Portada from "../components/Portada"
+import Hero from "../components/Hero"
 import Carrousel from "../components/Carrousel"
 
 function Main(){
     return (
         <>
-        <Portada/>
+        <Hero/>
         <Carrousel/>
         </>
     )

@@ -7,7 +7,7 @@ function Carrousel() {
   return (
     <div className="CarrouselContainer" style={{ paddingTop: "0.5rem", paddingBottom: "0.5rem" }}>
       <h1 className='tituloCarrousel'>Popular MyTineraries</h1>
-      <Carousel cols={2} rows={2} gap={10} autoplay={4000} loop
+      <Carousel cols={2} rows={2} gap={10} autoplay={3000} loop
         mobileBreakpoint={200} responsiveLayout={[
           {
             breakpoint: 768,
@@ -20,7 +20,7 @@ function Carrousel() {
         ]}>
         {ciudades.map(ciudad =>
           <Carousel.Item key={ciudad.id}>
-            <img width="100%" src={ciudad.imagen} alt={ciudad.nombre} style={{ height: "40vh", borderRadius: "30px"}} />
+            <img width="100%" src={ciudad.imagen} alt={ciudad.nombre} style={{ height: "39vh", borderRadius: "30px"}} />
             <p className='nombreCiudad'>{ciudad.nombre}</p>
           </Carousel.Item>)
         }
