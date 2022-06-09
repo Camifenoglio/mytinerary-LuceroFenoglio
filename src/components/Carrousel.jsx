@@ -20,7 +20,7 @@ function Carrousel() {
         ]}>
         {ciudades.map(ciudad =>
           <Carousel.Item key={ciudad.id}>
-            <img width="100%" src={ciudad.imagen} alt={ciudad.nombre} style={{ height: "39vh", borderRadius: "30px"}} />
+            <img width="100%" src={ciudad.imagen} alt={ciudad.nombre} style={{ height: "39vh", borderRadius: "30px" }} />
             <p className='nombreCiudad'>{ciudad.nombre}</p>
           </Carousel.Item>)
         }

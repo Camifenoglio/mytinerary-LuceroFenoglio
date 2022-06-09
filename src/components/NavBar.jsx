@@ -42,6 +42,7 @@ const NavBar = () => {
         <AppBar position="static" sx={{ backgroundColor: "black"}}>
             <Container maxWidth="xl" >
                 <Toolbar disableGutters>
+                    {/* MITINERARY MD */}
                     <Typography
                         variant="h6"
                         noWrap
@@ -62,10 +63,9 @@ const NavBar = () => {
                         <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{ height: "3.3rem" }} />
                         MiTinerary
                     </Typography>
-                    {/* box hamburguesa */}
+                    {/* BOX HAMBURGUESA */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "violet" }}>
                         <IconButton
-                        
                             size="large"
                             aria-label="account of current user"
                             aria-controls="menu-appbar"
@@ -76,6 +76,7 @@ const NavBar = () => {
                         >
                             <MenuIcon />
                         </IconButton>
+                        {/* MENU APBAR */}
                         <Menu
                             id="menu-appbar"
                             anchorEl={anchorElNav}
@@ -93,7 +94,7 @@ const NavBar = () => {
                             sx={{
                                 display: { xs: 'block', md: 'none' },
                             }}
-                        >
+                        > 
                             {pages.map((page,index) => (
                                 <LinkRouter to={page.to} className="botonLink" key={index} onClick={handleCloseNavMenu}>
                                 <MenuItem>
@@ -103,6 +104,7 @@ const NavBar = () => {
                             ))}
                         </Menu>
                     </Box>
+                    {/* MITINERARY XS */}
                     <Typography
                         variant="h5"
                         noWrap
@@ -124,13 +126,13 @@ const NavBar = () => {
                         <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{ height: "2.2rem" }} />
                         MiTinerary
                     </Typography>
-                    {/* link paginas home/cities en md */}
+                    {/* LINKS PAGINAS MD*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page,index) => (
                             <LinkRouter to={page.to} className="botonLink" key={index}
                             onClick={handleCloseNavMenu}>
                             <Button sx={{ my: 0, color: 'white', display: 'block', fontFamily: 'Vollkorn', fontSize: "1.15rem", mt: 0.5, ml:1, py: 0 }}>
-                              {page.name}
+                            {page.name}
                             </Button>
                             </LinkRouter>
                         ))}
@@ -138,10 +140,11 @@ const NavBar = () => {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                {/* iconologueo */}
+                                {/* ICONO LOGUEO */}
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" sx={{ backgroundColor: "#7F19A6", color: "black", height: "6vh", width: "6vh" }} />
                             </IconButton>
                         </Tooltip>
+                        {/* MENU LOGUEO */}
                         <Menu
                             sx={{ mt: '45px' }}
                             id="menu-appbar"

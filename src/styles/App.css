@@ -1,25 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Allura&family=Vollkorn&display=swap');
 
-*{margin:0;
-padding:0;
-box-sizing: border-box;}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* BOTONES LINKROUTER */
 .botonLink {
     text-decoration: none;
 }
 
-.css-6hp17o-MuiList-root-MuiMenu-list{
+/* CLASE MENUDESPLEGABLE */
+.css-6hp17o-MuiList-root-MuiMenu-list {
     background-color: black;
 }
 
-.imgPortada { 
+/* PORTADA */
+.imgPortada {
     background-image: url(/public/assets/sunset.jpg);
     background-size: cover;
-    height:90vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 }
 
 .tituloPortada {
@@ -44,66 +49,68 @@ box-sizing: border-box;}
 }
 
 .botonCiudades {
- border: 2px solid white;
- border-radius: 20px;
- background-color: transparent;
- padding: 0.5rem;
- width: 25vh;
- font-family: "Vollkorn";
- text-shadow: 2px 2px 3px rgb(15, 15, 15);
- font-weight: 500;
- color: white;
- font-size: 5vh;
- margin-top: 3vh;
-}  
+    border: 2px solid white;
+    border-radius: 20px;
+    background-color: transparent;
+    padding: 0.5rem;
+    width: 25vh;
+    font-family: "Vollkorn";
+    text-shadow: 2px 2px 3px rgb(15, 15, 15);
+    font-weight: 500;
+    color: white;
+    font-size: 5vh;
+    margin-top: 3vh;
+}
 .botonCiudades:link,
 .botonCiudades:visited {
- text-transform: uppercase;
- text-decoration: none;
- color: rgb(27, 27, 27);
- padding: 10px 30px;
- border: 1px solid;
- border-radius: 1000px;
- display: inline-block;
- transition: all .2s;
- position: relative;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgb(27, 27, 27);
+    padding: 10px 30px;
+    border: 1px solid;
+    border-radius: 1000px;
+    display: inline-block;
+    transition: all .2s;
+    position: relative;
 }
 
 .botonCiudades:hover {
- transform: translateY(-5px);
- box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
 }
 
 .botonCiudades:active {
- transform: translateY(-3px);
+    transform: translateY(-3px);
 }
 
 .botonCiudades::after {
- content: "";
- display: inline-block;
- height: 100%;
- width: 100%;
- border-radius: 100px;
- top: 0;
- left: 0;
- position: absolute;
- z-index: -1;
- transition: all .3s;
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    transition: all .3s;
 }
 
 .botonCiudades:hover::after {
- background-color: rgb(0, 238, 255);
- transform: scaleX(1.4) scaleY(1.5);
- opacity: 0;
+    background-color: rgb(0, 238, 255);
+    transform: scaleX(1.4) scaleY(1.5);
+    opacity: 0;
 }
 
+/* CARROUSEL */
 .nombreCiudad {
-text-align: center;
-font-family: "Vollkorn";
-color:#7F19A6;
-font-weight: 500;
-font-size: 3.5vh;
+    text-align: center;
+    font-family: "Vollkorn";
+    color: #7F19A6;
+    font-weight: 500;
+    font-size: 3.5vh;
 }
+
 .tituloCarrousel {
     text-align: center;
     color: #7F19A6;
@@ -113,8 +120,10 @@ font-size: 3.5vh;
 }
 
 .CarrouselContainer {
-        background-color: #FFFFFF;
+    background-color: #FFFFFF;
 }
+
+/* FOOTER */
 
 .FooterContainer {
     display: flex;
@@ -123,26 +132,28 @@ font-size: 3.5vh;
     flex-wrap: wrap;
     background-color: black;
 }
+
 @media (max-width: 425px) {
     .FooterContainer {
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      padding-top: 2vh;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding-top: 2vh;
     }
-    .botonRedes{
+
+    .botonRedes {
         display: flex;
         flex-direction: row;
     }
-  }
+}
 
-.RedesContainer{
+.RedesContainer {
     display: flex;
     align-items: center;
     gap: 2rem;
 }
 
-.CiudadesContainer{
+.CiudadesContainer {
     display: flex;
     justify-content: center;
     align-items: center;

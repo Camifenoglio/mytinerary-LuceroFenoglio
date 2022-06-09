@@ -2,11 +2,11 @@ import React from "react"
 import Hero from "../components/Hero"
 import Carrousel from "../components/Carrousel"
 
-function Main(){
+function Main() {
     return (
         <>
-        <Hero/>
-        <Carrousel/>
+            <Hero />
+            <Carrousel />
         </>
     )
 }

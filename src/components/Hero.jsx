@@ -13,9 +13,7 @@ function Hero(){
                 Let's go!
             </button>
             </LinkRouter>
-
         </div>
-
         
     )
 }
