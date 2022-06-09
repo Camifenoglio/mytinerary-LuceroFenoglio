@@ -96,7 +96,7 @@ const NavBar = () => {
                             }}
                         > 
                             {pages.map((page,index) => (
-                                <LinkRouter to={page.to} className="botonLink" key={index} onClick={handleCloseNavMenu}>
+                                <LinkRouter to={page.to} className="buttonLink" key={index} onClick={handleCloseNavMenu}>
                                 <MenuItem>
                                     <Typography sx= {{fontFamily:'Vollkorn', color: "white"}} textAlign="center">{page.name}</Typography>
                                 </MenuItem>
@@ -129,7 +129,7 @@ const NavBar = () => {
                     {/* LINKS PAGINAS MD*/}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page,index) => (
-                            <LinkRouter to={page.to} className="botonLink" key={index}
+                            <LinkRouter to={page.to} className="buttonLink" key={index}
                             onClick={handleCloseNavMenu}>
                             <Button sx={{ my: 0, color: 'white', display: 'block', fontFamily: 'Vollkorn', fontSize: "1.15rem", mt: 0.5, ml:1, py: 0 }}>
                             {page.name}

@@ -4,12 +4,12 @@ import {Link as LinkRouter} from "react-router-dom";
 
 function Hero(){
     return (
-        <div className="imgPortada">
-            <h1 className="tituloPortada">MiTinerary</h1>
-            <h2 className= "parrafoPortada">Find your perfect trip, designed by insiders who know and love their cities!
+        <div className="imgHero">
+            <h1 className="titleHero">MiTinerary</h1>
+            <h2 className= "paragraphHero">Find your perfect trip, designed by insiders who know and love their cities!
             </h2>
             <LinkRouter to="/cities" className="botonLink">
-            <button className="botonCiudades">
+            <button className="buttoncities">
                 Let's go!
             </button>
             </LinkRouter>

@@ -17,14 +17,14 @@ function Footer() {
                 <div>
                     <img src={process.env.PUBLIC_URL + "/assets/logo.png"} alt="logo" style={{ height: "4rem" }} />
                 </div>
-                <div className="RedesContainer">
+                <div className="appsContainer ">
                     <FacebookIcon sx={{ color: "white", fontSize: "2rem" }} />
                     <InstagramIcon sx={{ color: "white", fontSize: "2rem" }} />
                     <WhatsAppIcon sx={{ color: "white", fontSize: "2rem" }} />
                 </div>
-                <div className="botonRedes">
+                <div className="buttonApps">
                     {pages.map((page, index) => (
-                        <LinkRouter to={page.to} key={index} className="botonLink" >
+                        <LinkRouter to={page.to} key={index} className="buttonLink" >
                             <MenuItem >
                                 <Typography sx={{ fontFamily: 'Vollkorn', color: "#B329F8", fontSize: "3vh", padding: "0.5rem" }} textAlign="center">{page.name}</Typography>
                             </MenuItem>

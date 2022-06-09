@@ -1,12 +1,12 @@
 import React from 'react'
 import Carousel from 'react-grid-carousel'
 import '../styles/App.css'
-import ciudades from '../ciudades/ciudades.json'
+import cities from '../citiesData/Cities.json'
 
 function Carrousel() {
   return (
     <div className="CarrouselContainer" style={{ paddingTop: "0.5rem", paddingBottom: "0.5rem" }}>
-      <h1 className='tituloCarrousel'>Popular MyTineraries</h1>
+      <h1 className='titleCarrousel'>Popular MyTineraries</h1>
       <Carousel cols={2} rows={2} gap={10} autoplay={3000} loop
         mobileBreakpoint={200} responsiveLayout={[
           {
@@ -18,10 +18,10 @@ function Carrousel() {
             autoplay: 2000
           }
         ]}>
-        {ciudades.map(ciudad =>
-          <Carousel.Item key={ciudad.id}>
-            <img width="100%" src={ciudad.imagen} alt={ciudad.nombre} style={{ height: "39vh", borderRadius: "30px" }} />
-            <p className='nombreCiudad'>{ciudad.nombre}</p>
+        {cities.map(citie =>
+          <Carousel.Item key={citie.id}>
+            <img width="100%" src={citie.image} alt={citie.name} style={{ height: "39vh", borderRadius: "30px" }} />
+            <p className='nameCities'>{citie.name}</p>
           </Carousel.Item>)
         }
       </Carousel>

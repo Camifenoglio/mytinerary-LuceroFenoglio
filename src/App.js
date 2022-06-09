@@ -5,7 +5,7 @@ import {Routes,Route} from 'react-router-dom';
 import Index from './pages/Index.jsx';
 import Footer from './components/Footer'
 import Cities from './pages/Cities';
-import Error from './pages/Error'
+import NotFound from './pages/NotFound'
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Index />}/>
         <Route path="/Cities" element = {<Cities />}/>
-        <Route path="*" element={<Error />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>
