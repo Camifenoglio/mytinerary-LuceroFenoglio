@@ -182,8 +182,8 @@
 }
 
 .card {
-    width: 19rem;
-    height: 25rem;
+    width: 60%;
+    height: 13rem;
     border-radius: 3px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.24);
@@ -202,13 +202,13 @@
     flex-direction: column;
     justify-content: space-around;
     text-align: center;
-    transform: translateY(2);
+    transform: translateX(2);
     position: relative;
     background: rgba(0, 0, 0, 0.5);
-    height: 110%;
+    height: 100%;
     padding: 10px;
     color: #fff;
-    transition: all 0.60s ease-in;
+    transition: all 0.75s ease-in;
 }
 
 
