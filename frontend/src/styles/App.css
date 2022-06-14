@@ -48,12 +48,6 @@
     text-shadow: 2px 2px 3px rgb(15, 15, 15);
 }
 
-@media (max-width: 768px) {
-    .paragraphHero {
-        width: 80%;
-    }
-}
-
 .buttoncities {
     border: 2px solid white;
     border-radius: 20px;
@@ -140,20 +134,6 @@
     background-color: black;
 }
 
-@media (max-width: 425px) {
-    .FooterContainer {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        padding-top: 2vh;
-    }
-
-    .buttonApps {
-        display: flex;
-        flex-direction: row;
-    }
-}
-
 .appsContainer {
     display: flex;
     align-items: center;
@@ -170,6 +150,26 @@
 }
 
 /* CARDS CITIES */
+
+.citiesPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(11,2,195,1) 0%, rgba(154,57,255,1) 40%, rgba(247,191,82,1) 100%);
+    /* background: linear-gradient(135deg, rgba(11,2,195,1) 0%, rgba(154,57,255,1) 64%, rgba(247,191,82,1) 100%); */
+}
+
+.inputSearch {
+    width: "20vw" !important;
+    margin-top:"2vh" !important;
+    height:"5vh"!important;
+    border-radius: "15px" !important;
+    text-align: "center";
+    background-color: "transparent";
+    color: "white";
+}
+
+
 .cardContainer {
     display: flex;
     flex-direction: row;
@@ -179,17 +179,17 @@
     padding-top: 2vh;
     padding-bottom: 2vh;
 
+
 }
 
 .card {
-    width: 60%;
-    height: 13rem;
-    border-radius: 3px;
+    width: 28%;
+    height: 15rem;
+    border-radius: 15px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.24);
     overflow: hidden;
     margin: 0.8rem;
-    border-radius: 20px;
 }
 
 .card:hover {
@@ -229,4 +229,35 @@
     font-size: 16px;
     letter-spacing: 1.3px;
     line-height: 22px;
+}
+
+
+@media (max-width: 768px) {
+    .paragraphHero {
+        width: 80%;
+    }
+    .card {
+        width: 38%;
+    }
+}
+
+@media (max-width: 425px) {
+    .FooterContainer {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding-top: 2vh;
+    }
+
+    .buttonApps {
+        display: flex;
+        flex-direction: row;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .card{
+        width: 80%;
+    }
 }
