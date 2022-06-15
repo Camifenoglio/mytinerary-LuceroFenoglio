@@ -1,40 +1,35 @@
 import React from 'react';
 import '../styles/App.css';
-import cities from '../citiesData/Cities.json';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Link as LinkRouter } from 'react-router-dom';
+import axios from 'axios';
 
 function Cities() {
 
-  //const dataArray = [];
-
-  // const [cities,setCities] = useState([]);
-  // const [search, setSearch] = useState("");
-
-  const handleChange = (e) => {
-  //  setSearch(e.target.value);
-  //  console.log(e.arget.value);
-  };
+  const [cities, setCities] = useState()
+  const [search, setSearch] = useState("")
 
   useEffect(() => {
-    // const dataArray = [];
+    axios.get("http://localhost:4000/api/cities")
+      .then(response => setCities(response.data.response.cities))
+  }, [])
 
-  })
+  let cityFilter = cities?.filter(city => city.name.toLowerCase().startsWith(search.trim().toLowerCase()))
 
   return (
-
     <div className="citiesPage">
       <input
         type="text"
-        style={{width: "20vw", marginTop:"2vh", height:"5vh", borderRadius: "15px", textAlign: "center", backgroundColor: "#9D3EF8", color: "white", fontFamily: "vollkon", fontSize: "1.3rem"}}
+        style={{ width: "20vw", marginTop: "2vh", height: "5vh", borderRadius: "15px", textAlign: "center", backgroundColor: "#9D3EF8", color: "white", fontFamily: "vollkon", fontSize: "1.3rem" }}
         placeholder="Enter your city"
         className='inputSearch'
-        onChange={handleChange}
+        onKeyUp={e => { setSearch(e.target.value) }}
       ></input>
       <div className='cardContainer'>
-        {cities.map(citie =>
-          <div key={citie.id}
+        {cityFilter?.map(city =>
+          <div key={city._id}
             style={{
-              background: `url(${citie.image})`,
+              background: `url(${city.image})`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
@@ -42,15 +37,24 @@ function Cities() {
             }}
             className="card"
           >
+            <div className='bottomDetails'>
+              <LinkRouter className='buttonLink custom-btn btn' to={`/details/${city._id}`} class="fancy" href="#">
+                <span class="top-key"></span>
+                <span class="text">View More</span>
+                <span class="bottom-key-1"></span>
+                <span class="bottom-key-2"></span>
+              </LinkRouter>
+            </div>
+
             <div className="card-info">
-              <h4 className="card-title">{citie.name}</h4>
-              <p className="card-description">{citie.name}</p>
+              <h4 className="card-title">{city.name}</h4>
+              <p className="card-description">{city.country}</p>
             </div>
           </div>
         )}
       </div>
-    </div>)
-
+    </div>
+  )
 }
 
 export default Cities

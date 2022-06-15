@@ -151,22 +151,20 @@
 
 /* CARDS CITIES */
 
-.citiesPage{
+.citiesPage {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(135deg, rgba(11,2,195,1) 0%, rgba(154,57,255,1) 40%, rgba(247,191,82,1) 100%);
-    /* background: linear-gradient(135deg, rgba(11,2,195,1) 0%, rgba(154,57,255,1) 64%, rgba(247,191,82,1) 100%); */
+    background: linear-gradient(135deg, rgba(11, 2, 195, 1) 0%, rgba(154, 57, 255, 1) 40%, rgba(247, 191, 82, 1) 100%);
 }
 
 .inputSearch {
-    width: "20vw" !important;
-    margin-top:"2vh" !important;
-    height:"5vh"!important;
-    border-radius: "15px" !important;
-    text-align: "center";
-    background-color: "transparent";
-    color: "white";
+    width: 20rem !important ;
+    margin-top: 2vh !important;
+    height: 5vh !important;
+    border-radius: 15px !important;
+    text-align: center !important;
+    color: white !important;
 }
 
 
@@ -183,8 +181,8 @@
 }
 
 .card {
-    width: 28%;
-    height: 15rem;
+    width:28vw;
+    height: 17rem;
     border-radius: 15px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.24);
@@ -202,15 +200,23 @@
     flex-direction: column;
     justify-content: space-around;
     text-align: center;
-    transform: translateX(2);
+    transform: translateX(10);
     position: relative;
+    top:17vh;
     background: rgba(0, 0, 0, 0.5);
-    height: 100%;
+    height: 35%;
     padding: 10px;
     color: #fff;
     transition: all 0.75s ease-in;
 }
 
+.bottomDetails {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 2vh;
+
+}
 
 .card:hover .card-info {
     transform: translateY(100%);
@@ -232,12 +238,162 @@
 }
 
 
+/* COMPONENT DETAILS */
+
+.cardDetail {
+    width: 100%;
+    height: 73vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    object-fit: cover !important;
+}
+.card-title-details {
+    font-family: "Allura";
+    color: white;
+    font-size: 25vh;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px rgb(248, 244, 6);
+}
+.card-country-details {
+    font-family: "Allura";
+    color: white;
+    font-size: 10vh;
+    text-align: center;
+    font-weight: 500;
+    text-shadow: 2px 2px 3px rgb(248, 135, 6);
+}
+.buttonDetails {
+    margin-top: 5vh !important;
+}
+.boxDetail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* bottom cities details */
+
+   .fancy {
+    background-color:rgba(0, 0, 0, 0.411);
+    border: 2px solid white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 1em 1.5em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+    font-size: 12px;
+   }
+   
+   .fancy::before {
+    content: " ";
+    width: 1.5625rem;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.411);
+    top: 50%;
+    left: 1.5em;
+    position: absolute;
+    transform: translateY(-50%);
+    transform-origin: center;
+    transition: background 0.3s linear, width 0.3s linear;
+   }
+   
+   .fancy .text {
+    font-size: 1.125em;
+    line-height: 1.33333em;
+    padding-left: 2em;
+    display: block;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+   }
+   
+   .fancy .top-key {
+    height: 2px;
+    width: 1.5625rem;
+    top: -2px;
+    left: 0.625rem;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.411);
+    transition: width 0.5s ease-out, left 0.3s ease-out;
+   }
+   
+   .fancy .bottom-key-1 {
+    height: 2px;
+    width: 1.5625rem;
+    right: 1.875rem;
+    bottom: -2px;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.411);
+    transition: width 0.5s ease-out, right 0.3s ease-out;
+   }
+   
+   .fancy .bottom-key-2 {
+    height: 2px;
+    width: 0.625rem;
+    right: 0.625rem;
+    bottom: -2px;
+    position: absolute;
+    background:rgba(0, 0, 0, 0.411);
+    transition: width 0.5s ease-out, right 0.3s ease-out;
+   }
+   
+   .fancy:hover {
+    color: white;
+    background: black;
+   }
+   
+   .fancy:hover::before {
+    width: 0.9375rem;
+    background: white;
+   }
+   
+   .fancy:hover .text {
+    color: white;
+    padding-left: 1.5em;
+   }
+   
+   .fancy:hover .top-key {
+    left: -2px;
+    width: 0px;
+   }
+   
+   .fancy:hover .bottom-key-1,
+    .fancy:hover .bottom-key-2 {
+    right: 0;
+    width: 0;
+   }
+
 @media (max-width: 768px) {
     .paragraphHero {
         width: 80%;
     }
+    .inputSearch {
+        width: 10rem !important;
+    }
+
     .card {
         width: 38%;
+    }
+    .card-title-details {
+        font-size: 18vh;
     }
 }
 
@@ -248,16 +404,24 @@
         gap: 2rem;
         padding-top: 2vh;
     }
-
     .buttonApps {
         display: flex;
         flex-direction: row;
+    }
+    .card-title-details {
+        font-size: 10vh !important;
+    }
+    .card-country-details {
+        font-size: 8vh !important;
     }
 
 }
 
 @media (max-width: 600px) {
-    .card{
+    .card {
         width: 80%;
+    }
+    .card-title-details {
+        font-size: 14vh;
     }
 }

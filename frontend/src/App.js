@@ -8,6 +8,7 @@ import Cities from './pages/Cities';
 import NotFound from './pages/NotFound';
 import ScrollToTop from "react-scroll-to-top";
 import FlightIcon from '@mui/icons-material/Flight';
+import CardDetails from './components/Details'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" element={<Index />}/>
         <Route path="/Cities" element = {<Cities />}/>
         <Route path="*" element={<NotFound />} />
+        <Route path='/details/:id' element= {<CardDetails/>}/>
       </Routes>
       <Footer />
       <ScrollToTop smooth style={{backgroundColor:"transparent", width: "3rem", height: "3rem"}} component={<FlightIcon sx={{ color: "#6113AC", fontSize: "2.7rem"}} />} />

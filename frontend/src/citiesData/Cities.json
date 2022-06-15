@@ -1,62 +1,86 @@
 [
-    {"name": "Tayrona, Colombia",
-    "image": "https://media-cdn.tripadvisor.com/media/photo-s/0c/6d/e5/14/cabo-san-juan-tayrona.jpg",
-    "id":"1"
+    {
+        "name": "Tayrona",
+        "country": "Colombia",
+        "image": "https://denomades.s3.us-west-2.amazonaws.com/blog/wp-content/uploads/2020/04/10142838/image.jpg",
+        "description": "The Tayrona National Natural Park is a protected area in the Colombian northern Caribbean region and within the jurisdiction of the city of Santa Marta, 34 kilometres from the city centre. The park presents a biodiversity endemic to the area of the Sierra Nevada de Santa Marta mountain range, featuring a variety of climates and geography that ranges from arid sea level to 900 meters above sea level. The park covers approximately 30 square kilometres of maritime area in the Caribbean sea and approximately 150 square kilometres of land.",
+        "id": "1"
     },
-
-    {"name": "Cancun, México",
-    "image": "https://inmobiliare.com/himalaya/wp-content/uploads/2020/05/Quintana-Roo-alista-una-nueva-%E2%80%9CCertificaci%C3%B3n-Sanitaria-Tur%C3%ADstica%E2%80%9D.jpg",
-    "id":"2"
+    {
+        "name": "Cancún",
+        "country": "México",
+        "image": "https://inmobiliare.com/himalaya/wp-content/uploads/2020/05/Quintana-Roo-alista-una-nueva-%E2%80%9CCertificaci%C3%B3n-Sanitaria-Tur%C3%ADstica%E2%80%9D.jpg",
+        "description": "Cancún, often Cancun in English is a city in southeast Mexico on the northeast coast of the Yucatán Peninsula in the Mexican state of Quintana Roo. It is a significant tourist destination in Mexico and the seat of the municipality of Benito Juárez. The city is on the Caribbean Sea and is one of Mexico's easternmost points. Cancún is just north of Mexico's Caribbean coast resort area known as the Riviera Maya.",
+        "id": "2"
     },
-
-    {"name": "Varadero, Cuba",
-    "image": "https://www.vinosycaminos.com/images/showid2/1726175?w=1200&zc=4",
-    "id":"3"
+    {
+        "name": "Varadero",
+        "country": "Cuba",
+        "image": "https://www.vinosycaminos.com/images/showid2/1726175?w=1200&zc=4",
+        "description":"Varadero, also referred to as Playa Azul, is a resort town in the province of Matanzas, Cuba, and one of the largest resort areas in the Caribbean. Varadero Beach was rated one of the world's best beaches in TripAdvisor's Traveler's Choice Awards of 2019, ranking at number two. Common activities include fishing and excursions to Matanzas, Cárdenas, and the Península de Zapata",
+        "id": "3"
     },
-
-    {"name": "Aruba",
-    "image": "https://media-cdn.tripadvisor.com/media/photo-s/21/92/35/f4/cabanas-aerial.jpg",
-    "id":"4"
+    {
+        "name": "Oranjestad",
+        "country": "Aruba",
+        "image": "https://rccl-h.assetsadobe.com/is/image/content/dam/royal/data/ports/oranjestad-aruba/aruba-manchebo-beach-coast-sunny-day.jpg?$1440x600$",
+        "description":"The capital of the Dutch island of Aruba in the Caribbean; population 32,000",
+        "id": "4"
     },
-
-    {"name": "Machu Picchu, Peru",
-    "image": "https://static.hosteltur.com/app/public/uploads/img/articles/2017/07/01/L_5c1a9605f3548_machu-picchuorg-001.jpg",
-    "id":"5"
+    {
+        "name": "Machu Picchu",
+        "country": "Peru",
+        "image": "https://cms.valenciatravelcusco.com/media/images/package/sacred-valley-and-machu-picchu-by-train_Z4e2XgX.jpg",
+        "description":"Machu Picchu is a 15th-century Inca citadel located in the Eastern Cordillera of southern Peru on a 2,430-meter mountain ridge.It is located in the Machupicchu District within Urubamba Province above the Sacred Valley, which is 80 kilometersnorthwest of Cusco. The Urubamba River flows past it, cutting through the Cordillera and creating a canyon with a tropical mountain climate",
+        "id": "5"
     },
-
-    {"name": "Rio de Janeiro, Brazil",
-    "image": "https://i0.wp.com/imaginariodejaneiro.com/wp-content/uploads/2018/09/rio-de-janeiro-1963744_1280.jpg?resize=1024%2C682&ssl=1",
-    "id":"6"
+    {
+        "name": "Rio de Janeiro",
+        "country": "Brazil",
+        "image": "https://i0.wp.com/imaginariodejaneiro.com/wp-content/uploads/2018/09/rio-de-janeiro-1963744_1280.jpg?resize=1024%2C682&ssl=1",
+        "description":"Rio de Janeiro, or simply Rio,[6] literally River of January, is the second-most populous city in Brazil and the sixth-most populous in the Americas. Rio de Janeiro is the capital of the state of the same name, Brazil's third-most populous state, after São Paulo and Minas Gerais. Part of the city has been designated as a World Heritage Site on 1 July 2012 as a Cultural Landscape",
+        "id": "6"
     },
-
-    {"name": "Villa La Angostura, Argentina",
-    "image": "https://elcordillerano1.cdn.net.ar/252/elcordillerano/images/69/81/698194_eb5813b73d2eb9e240dd3f5ccf66033de4cf79ce27758bc7dd4090fa734e2a35/md.webp",
-    "id":"7"
+    {
+        "name": "Villa La Angostura",
+        "country": "Argentina",
+        "image": "https://elcordillerano1.cdn.net.ar/252/elcordillerano/images/69/81/698194_eb5813b73d2eb9e240dd3f5ccf66033de4cf79ce27758bc7dd4090fa734e2a35/md.webp",
+        "description":"Villa La Angostura is a town located in the Los Lagos Department in the south of the Argentine province of Neuquén, on the northwest shore of the Nahuel Huapi Lake.  Nestled in the northern part of the Nahuel Huapi National Park, and surrounded by lakes, forests and mountains, it is considered to be one of the most beautiful locations in the mountainous parts of Patagonia; earning it the nickname Garden of Patagonia ",
+        "id": "7"
     },
-
-    {"name": "Pucon, Chile",
-    "image": "https://denomades.s3.us-west-2.amazonaws.com/blog/wp-content/uploads/2020/11/25183839/26ad6d6cf8f3ffdab097c874dc1050f4-768x513.jpg",
-    "id":"8"
+    {
+        "name": "Pucón",
+        "country": "Chile",
+        "image": "https://denomades.s3.us-west-2.amazonaws.com/blog/wp-content/uploads/2020/11/25183839/26ad6d6cf8f3ffdab097c874dc1050f4-768x513.jpg",
+        "description":"Pucón is a Chilean city and commune administered by the municipality of Pucón. It is located in the Province of Cautín, Araucanía Region, 100 km to the southeast of Temuco and 780 km to the south of Santiago. It is on the eastern shore of Lake Villarrica, and Villarrica volcano is located roughly 17 km to the south.",
+        "id": "8"
     },
-
-    {"name": "Ibiza, Spain",
-    "image": "https://ep01.epimg.net/elviajero/imagenes/2017/03/02/actualidad/1488451186_479605_1488452668_noticia_normal_recorte1.jpg",
-    "id":"9"
+    {
+        "name": "Ibiza",
+        "country": "Spain",
+        "image": "https://cdn2.civitatis.com/espana/playa-d-en-bossa/paseo-barco-es-vedra.jpg",
+        "description":"Ibiza is a Spanish island in the Mediterranean Sea off the eastern coast of the Iberian Peninsula. It is 150 kilometres from the city of Valencia. It is the third largest of the Balearic Islands, in Spain. Its largest settlements are Ibiza Town, Santa Eulària des Riu, and Sant Antoni de Portmany. Its highest point, called Sa Talaiassa, is 475 metres above sea level.",
+        "id": "9"
     },
-
-    {"name": "Amsterdam, Netherlands",
-    "image": "https://www.clarin.com/img/2021/04/20/un-clasico-de-amsterdam-bicicletas___B6VHq_S5E_1200x630__1.jpg",
-    "id":"10"
+    {
+        "name": "Amsterdam",
+        "country": "Netherlands",
+        "image": "https://www.clarin.com/img/2021/04/20/un-clasico-de-amsterdam-bicicletas___B6VHq_S5E_1200x630__1.jpg",
+        "description":"Amsterdam is the capital and most populous city of the Netherlands; with a population of 907,976 within the city proper, 1,558,755 in the urban area[6] and 2,480,394 in the metropolitan area. Found within the Dutch province of North Holland, Amsterdam is colloquially referred to as the 'Venice of the North', due to the large number of canals which form a UNESCO World Heritage Site",
+        "id": "10"
     },
-
-    {"name": "Positano, Italy",
-    "image": "https://cdn0.bodas.net/article/3813/3_2/1280/jpg/63183-1.webp",
-    "id":"11"
+    {
+        "name": "Positano",
+        "country": "Italy",
+        "image": "https://cdn0.bodas.net/article/3813/3_2/1280/jpg/63183-1.webp",
+        "description":"Positano is a village and comune on the Amalfi Coast, in Campania, Italy, mainly in an enclave in the hills leading down to the coast.",
+        "id": "11"
     },
-
-    {"name": "Paris, France",
-    "image": "https://procolombia.co/sites/default/files/uploads/2021/05/14/prco_web_adaptacion_800x600_paris_francia.jpg",
-    "id":"12"
+    {
+        "name": "Paris",
+        "country": "France",
+        "image": "https://procolombia.co/sites/default/files/uploads/2021/05/14/prco_web_adaptacion_800x600_paris_francia.jpg",
+        "description":"Paris is the capital and most populous city of France, with an estimated population of 2,165,423 residents in 2019 in an area of more than 105 km², making it the 34th most densely populated city in the world in 2020",
+        "id": "12"
     }
 ]
-
