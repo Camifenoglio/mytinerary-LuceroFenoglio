@@ -407,12 +407,15 @@ padding: 2vh;
     .card-country-details {
         font-size: 5vh !important;
     }
+    .card {
+        width: 80% !important;
+    }
 
 }
 
 @media (max-width: 600px) {
     .card {
-        width: 80%;
+        width: 80% !important;
     }
     .card-title-details {
         font-size: 7vh !important;
