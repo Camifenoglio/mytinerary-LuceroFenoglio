@@ -18,7 +18,7 @@ function CardFilter({propsCityFilter}) {
           className="card"
         >
           <div className='bottomDetails'>
-            <LinkRouter className='buttonLink custom-btn btn' to={`/details/${city._id}`} className="fancy" href="#">
+            <LinkRouter className='buttonLink custom-btn btn fancy' to={`/details/${city._id}`}>
               <span className="top-key"></span>
               <span className="text">View More</span>
               <span className="bottom-key-1"></span>
