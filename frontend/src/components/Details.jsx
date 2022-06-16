@@ -16,7 +16,7 @@ function CardDetails() {
 
     return (
 
-        <div >
+        <div>
             <div>
 
                 <div
@@ -29,14 +29,12 @@ function CardDetails() {
                         <h4 className="card-title-details">{city?.name}</h4>
                         <p className="card-country-details">{city?.country}</p>
                         <div className="buttonDetails">
-
-                        <LinkRouter to="/cities" className="botonLink fancy">
-                            <span class="top-key"></span>
-                            <span class="text">Back Cities</span>
-                            <span class="bottom-key-1"></span>
-                            <span class="bottom-key-2"></span>
-
-                        </LinkRouter>
+                            <LinkRouter to="/cities" className="botonLink fancy">
+                                <span className="top-key"></span>
+                                <span className="text">Back Cities</span>
+                                <span className="bottom-key-1"></span>
+                                <span className="bottom-key-2"></span>
+                            </LinkRouter>
                         </div>
                     </div>
                 </div>

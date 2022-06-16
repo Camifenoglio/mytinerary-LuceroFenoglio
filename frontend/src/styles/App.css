@@ -144,23 +144,31 @@
 .notfoundContainer {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-    min-height: 73vh;
-    background-color: #7e19a69a;
+    min-height: 66vh;
+    background: linear-gradient(135deg, rgba(11, 2, 195, 1) 0%, rgba(154, 57, 255, 1) 40%, rgba(247, 191, 82, 1) 100%);
 }
 
 /* CARDS CITIES */
 
 .citiesPage {
     display: flex;
+    justify-content: flex-end;
+    padding-right: 5vw;
+    height: 8vh;
+    background:linear-gradient(135deg, rgba(11, 2, 195, 1) 0%, rgba(154, 57, 255, 1) 40%, rgba(247, 191, 82, 1) 100%);
+}
+.cardFilterBox {
+    display: flex;
     flex-direction: column;
+    min-height: 65vh;
     align-items: center;
     background: linear-gradient(135deg, rgba(11, 2, 195, 1) 0%, rgba(154, 57, 255, 1) 40%, rgba(247, 191, 82, 1) 100%);
 }
 
 .inputSearch {
     width: 20rem !important ;
-    margin-top: 2vh !important;
     height: 5vh !important;
     border-radius: 15px !important;
     text-align: center !important;
@@ -253,10 +261,11 @@ padding: 2vh;
 }
 .card-title-details {
     font-family: "Allura";
-    color: white;
-    font-size: 25vh;
+    color: whitesmoke;
+    font-size: 20vh;
     font-weight: 500;
-    text-shadow: 1px 1px 1px rgb(248, 244, 6);
+    text-shadow: 7px 6px 10px rgb(19, 19, 18);
+    text-align: center;
 }
 .card-country-details {
     font-family: "Allura";
@@ -381,22 +390,6 @@ padding: 2vh;
     width: 0;
    }
 
-@media (max-width: 768px) {
-    .paragraphHero {
-        width: 80%;
-    }
-    .inputSearch {
-        width: 10rem !important;
-    }
-
-    .card {
-        width: 38%;
-    }
-    .card-title-details {
-        font-size: 18vh;
-    }
-}
-
 @media (max-width: 425px) {
     .FooterContainer {
         flex-direction: column;
@@ -409,10 +402,10 @@ padding: 2vh;
         flex-direction: row;
     }
     .card-title-details {
-        font-size: 10vh !important;
+        font-size: 6vh !important;
     }
     .card-country-details {
-        font-size: 8vh !important;
+        font-size: 5vh !important;
     }
 
 }
@@ -422,6 +415,35 @@ padding: 2vh;
         width: 80%;
     }
     .card-title-details {
-        font-size: 14vh;
+        font-size: 7vh !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .paragraphHero {
+        width: 80%;
+    }
+    .inputSearch {
+        width: 10rem !important;
+    }
+
+    .card {
+        width: 38%;
+    }
+    .card-title-details {
+        font-size: 10vh !important;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .card-title-details {
+        font-size: 13vh;
+    }
+}
+
+@media (min-width: 1500px) {
+    .card-info {
+       height:20%;
     }
 }
