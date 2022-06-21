@@ -8,16 +8,22 @@ import Cities from './pages/Cities';
 import NotFound from './pages/NotFound';
 import ScrollToTop from "react-scroll-to-top";
 import FlightIcon from '@mui/icons-material/Flight';
-import CardDetails from './components/Details'
+import CardDetails from './components/Details';
+import {connect} from 'react-redux';
+import citiesActions from './redux/actions/citiesAction'
 
 
-function App() {
+function App(props) {
 
   useEffect (()=>{
     setTimeout(() => {
     window.scrollTo(0,0)
   },500)
   },[])
+
+  useEffect(() => {
+    props.getCities()
+  }, [])
 
   return (
     <div className="App">
@@ -34,4 +40,9 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = {
+  getCities: citiesActions.getCities,
+}
+
+
+export default connect(null, mapDispatchToProps)(App)

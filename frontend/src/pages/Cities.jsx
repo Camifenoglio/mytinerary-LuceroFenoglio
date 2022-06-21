@@ -1,19 +1,13 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 import CardFilter from '../components/CardFilter';
 import NotFound from './NotFound';
+import {connect} from 'react-redux';
 
-function Cities() {
+function Cities(props) {
 
-  const [cities, setCities] = useState()
   const [search, setSearch] = useState("")
 
-  useEffect(() => {
-    axios.get("http://localhost:4000/api/cities")
-      .then(response => setCities(response.data.response.cities))
-  }, [])
-
-  let cityFilter = cities?.filter(city => city.name.toLowerCase().startsWith(search.trim().toLowerCase()))
+  let cityFilter = props.cities?.filter(city => city.name.toLowerCase().startsWith(search.trim().toLowerCase()))
 
   return (
     <>
@@ -32,5 +26,11 @@ function Cities() {
     </>
   )
 }
+const mapStateToProps = (state) => {
+  return {
+    cities: state.citiesReducer.cities,
+    auxiliar: state.citiesReducer.auxiliar,
+  }
+}
 
-export default Cities
+export default connect(mapStateToProps, null)(Cities)

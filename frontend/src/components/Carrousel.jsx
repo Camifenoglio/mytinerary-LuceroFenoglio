@@ -1,16 +1,9 @@
 import React from 'react';
-import Carousel from 'react-grid-carousel';
+import Carousel, { propTypes } from 'react-grid-carousel';
 import '../styles/App.css';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import {connect} from 'react-redux';
 
-
-function Carrousel() {
-  const [cities, setCities] = useState()
-  useEffect(() => {
-    axios.get("http://localhost:4000/api/cities")
-      .then(response => setCities(response.data.response.cities))
-  }, [])
+function Carrousel(props) {
 
   return (
     <div className="CarrouselContainer" style={{ paddingTop: "0.5rem", paddingBottom: "0.5rem" }}>
@@ -26,7 +19,7 @@ function Carrousel() {
             autoplay: 2000
           }
         ]}>
-        {cities?.map(citie =>
+        {props.cities?.map(citie =>
           <Carousel.Item key={citie._id}>
             <img width="100%" src={citie.image} alt={citie.name} style={{ height: "39vh", borderRadius: "30px" }} />
             <p className='nameCities'>{citie.name}</p>
@@ -37,4 +30,12 @@ function Carrousel() {
 
 }
 
-export default Carrousel
+const mapStateToProps = (state) => {
+  return {
+    cities: state.citiesReducer.cities,
+    auxiliar: state.citiesReducer.auxiliar,
+  }
+}
+
+export default connect(mapStateToProps, null)(Carrousel)
+
