@@ -18,6 +18,7 @@ function Cities() {
   return (
     <>
       <div className="citiesPage">
+        <div  className='inputBox'>
         <input
           type="text"
           style={{ width: "20vw", marginTop: "2vh", height: "5vh", borderRadius: "15px", textAlign: "center", backgroundColor: "#9D3EF8", color: "white", fontFamily: "vollkon", fontSize: "1.3rem" }}
@@ -25,9 +26,8 @@ function Cities() {
           className='inputSearch'
           onKeyUp={e => { setSearch(e.target.value) }}
         ></input>
-      </div>
-      <div>
-        {cityFilter?.length > 0 ? (<CardFilter propsCityFilter={cityFilter} />) : (<NotFound/>)}
+        </div>
+        {cityFilter?.length > 0 ? (<CardFilter propsCityFilter={cityFilter} />) : (<NotFound />)}
       </div>
     </>
   )

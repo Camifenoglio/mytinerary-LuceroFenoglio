@@ -20,6 +20,7 @@
 .imgHero {
     background-image: url(/public/assets/sunset.jpg);
     background-size: cover;
+    background-attachment: fixed;
     height: 90vh;
     display: flex;
     flex-direction: column;
@@ -121,7 +122,7 @@
 }
 
 .CarrouselContainer {
-    background-color: #FFFFFF;
+    background-color: white;
 }
 
 /* FOOTER */
@@ -140,7 +141,6 @@
     gap: 2rem;
 }
 
-.CitiesContainer,
 .notfoundContainer {
     display: flex;
     justify-content: center;
@@ -154,17 +154,21 @@
 
 .citiesPage {
     display: flex;
-    justify-content: flex-end;
-    padding-right: 5vw;
-    height: 8vh;
+    flex-direction: column;
     background:linear-gradient(135deg, rgba(11, 2, 195, 1) 0%, rgba(154, 57, 255, 1) 40%, rgba(247, 191, 82, 1) 100%);
 }
 .cardFilterBox {
     display: flex;
     flex-direction: column;
-    min-height: 65vh;
     align-items: center;
-    background: linear-gradient(135deg, rgba(11, 2, 195, 1) 0%, rgba(154, 57, 255, 1) 40%, rgba(247, 191, 82, 1) 100%);
+    min-height: 65vh;
+}
+
+.inputBox{
+    display: flex;
+justify-content: flex-end;
+padding-right: 7vw;
+padding-top: 2vh;
 }
 
 .inputSearch {
@@ -182,7 +186,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding-top: 2vh;
+    padding-top: 4vh;
     padding-bottom: 2vh;
 
 
@@ -196,6 +200,7 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.24);
     overflow: hidden;
     margin: 0.8rem;
+    
 }
 
 .card:hover {
@@ -208,11 +213,11 @@
     flex-direction: column;
     justify-content: space-around;
     text-align: center;
-    transform: translateX(10);
+    transform: translateY(10);
     position: relative;
-    top:17vh;
+    top:40%;
     background: rgba(0, 0, 0, 0.5);
-    height: 35%;
+    height: 6rem;
     padding: 10px;
     color: #fff;
     transition: all 0.75s ease-in;
@@ -257,6 +262,7 @@ padding: 2vh;
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
+    background-attachment: fixed !important;
     object-fit: cover !important;
 }
 .card-title-details {
