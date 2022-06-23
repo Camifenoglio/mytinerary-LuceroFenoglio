@@ -30,11 +30,12 @@ const itinerariesControllers = {
     }
     ,
     addItinerary: async (req, res) => {
-        const { name, personName, imagePerson, price, duration, hashtags, likes, activities } = req.body.data
+        const { name, personName, imagePerson, price, duration, hashtags, likes, activities, city } = req.body.data
         let itinerary
         let error = null
         try {
             itinerary = await new Itinerary({
+                city: city,
                 name: name,
                 personName: personName,
                 imagePerson:imagePerson,
@@ -60,6 +61,7 @@ const itinerariesControllers = {
         try {
             data.map(async (item) => {
                 await new Itinerary({
+                    city: item.city,
                     name: item.name,
                     personName: item.personName,
                     imagePerson: item.imagePerson,
@@ -105,6 +107,21 @@ const itinerariesControllers = {
         }
         res.json({
             response: error ? 'ERROR' : itinerary,
+            success: error ? false : true,
+            error: error
+        })
+    },
+    findItinerariesFromCity: async (req,res)=>{
+        const id= req.params.id
+        let itineraries
+        let error= null
+        try{
+            itineraries= await Itinerary.find({city: id})
+        }catch (err) {
+            error = err
+        }
+        res.json({
+            response: error ? 'ERROR' : (itineraries),
             success: error ? false : true,
             error: error
         })

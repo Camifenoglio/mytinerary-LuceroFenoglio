@@ -1,21 +1,24 @@
 import React from 'react';
 import '../styles/App.css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import { Link as LinkRouter } from 'react-router-dom';
+import { useDispatch, useSelector} from 'react-redux';
+import citiesActions from '../redux/actions/citiesAction';
+import Itinerary from './Itinerary';
 
 function CardDetails() {
     const { id } = useParams()
-    const [city, setCity] = useState()
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        axios.get(`http://localhost:4000/api/cities/${id}`)
-            .then(response => setCity(response.data.response.city))
-    }, [])
+        dispatch(citiesActions.getOneCity(id))
+    },[id])
+
+    const city = useSelector(store => store.citiesReducer.getOneCity)
 
     return (
-
+<>
         <div>
             <div>
 
@@ -40,6 +43,8 @@ function CardDetails() {
                 </div>
             </div>
         </div>
+              <Itinerary/>
+              </>
     )
 
 }

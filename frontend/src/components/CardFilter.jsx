@@ -2,7 +2,6 @@ import React from 'react';
 import { Link as LinkRouter } from 'react-router-dom';
 import '../styles/App.css';
 
-
 function CardFilter({propsCityFilter}) {
   return (
     < div className = 'cardContainer cardFilterBox ' >
@@ -32,8 +31,8 @@ function CardFilter({propsCityFilter}) {
           </div>
         </div>
       )}
-  
       </div >
+
   )
 }
 

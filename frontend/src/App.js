@@ -9,11 +9,11 @@ import NotFound from './pages/NotFound';
 import ScrollToTop from "react-scroll-to-top";
 import FlightIcon from '@mui/icons-material/Flight';
 import CardDetails from './components/Details';
-import {connect} from 'react-redux';
-import citiesActions from './redux/actions/citiesAction'
+import citiesActions from './redux/actions/citiesAction';
+import {useDispatch} from 'react-redux'
 
 
-function App(props) {
+function App() {
 
   useEffect (()=>{
     setTimeout(() => {
@@ -21,8 +21,11 @@ function App(props) {
   },500)
   },[])
 
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    props.getCities()
+    dispatch(citiesActions.getCities())
+
   }, [])
 
   return (
@@ -35,14 +38,10 @@ function App(props) {
         <Route path='/details/:id' element= {<CardDetails/>}/>
       </Routes>
       <Footer />
-      <ScrollToTop smooth style={{backgroundColor:"transparent", width: "3rem", height: "3rem"}} component={<FlightIcon sx={{ color: "#6113AC", fontSize: "2.7rem"}} />} />
+      <ScrollToTop smooth style={{backgroundColor:"transparent", width: "3rem", height: "3rem"}} component={<FlightIcon sx={{ color: "yellow", filter: "drop-shadow(3px 8px 2px rgb(0 0 0 / 0.9))", fontSize: "2.7rem"}} />} />
     </div>
   );
 }
 
-const mapDispatchToProps = {
-  getCities: citiesActions.getCities,
-}
 
-
-export default connect(null, mapDispatchToProps)(App)
+export default App;

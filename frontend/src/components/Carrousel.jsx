@@ -1,5 +1,5 @@
 import React from 'react';
-import Carousel, { propTypes } from 'react-grid-carousel';
+import Carousel from 'react-grid-carousel';
 import '../styles/App.css';
 import {connect} from 'react-redux';
 

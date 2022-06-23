@@ -396,6 +396,21 @@ padding: 2vh;
     width: 0;
    }
 
+/* CARD ITINERARY */
+
+.cardItineraryBox{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+    align-items: center;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    background-image: url(/public/assets/fondoitinerary.jpg);
+    background-size: cover;
+  
+}
+
 @media (max-width: 425px) {
     .FooterContainer {
         flex-direction: column;
