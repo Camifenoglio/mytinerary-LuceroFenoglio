@@ -3,7 +3,7 @@
     "city": "62a94fd4c2990d0593966312",
     "name": "Hike to the Lost City",
     "personName": "Joseff Mcconnell",
-    "imagePerson":"imagePerson",
+    "imagePerson":"https://i.imgur.com/LU8NbYH.jpg",
     "price": "💵💵💵💵💵",
     "duration": "72 hours",
     "hashtags":  ["#hike", "#tayrona", "#santaMarta", "#lostcity"] ,
@@ -14,7 +14,7 @@
         "city": "62a94fd4c2990d0593966313",
         "name": "The Best Cenote Tour And Guide",
         "personName": "Suzanna Park",
-        "imagePerson":"imagePerson",
+        "imagePerson":"https://i.imgur.com/Ze7YYUR.jpg",
         "price": "💵💵",
         "duration": "8 hours",
         "hashtags":  ["#cenote", "#cancun", "#méxico", "#snorkel"],
@@ -25,7 +25,7 @@
         "city": "62a94fd4c2990d0593966313",
         "name": "Isla Mujeres Snorkeling Tour",
         "personName": "Donell Castaneda",
-        "imagePerson":"imagePerson",
+        "imagePerson":"https://i.imgur.com/5TOZN4S.jpg",
         "price": "💵💵💵",
         "duration": "10 hours",
         "hashtags":  ["#islamujeres", "#cancun", "#méxico", "#snorkel"],
@@ -36,7 +36,7 @@
         "city": "62a94fd4c2990d0593966316",
         "name": "Machu Picchu full day",
         "personName": "Robert Wilkinson",
-        "imagePerson":"imagePerson",
+        "imagePerson":"https://i.imgur.com/r0ZDV5e.jpg",
         "price": "💵💵",
         "duration": "24 hours",
         "hashtags":  ["#machupicchu", "#aguascalientes", "#peru", "#cuzco"],
@@ -47,7 +47,7 @@
         "city": "62a94fd4c2990d0593966316",
         "name": "Rainbow Mountain on quad bike",
         "personName": "Amisha Vance",
-        "imagePerson":"imagePerson",
+        "imagePerson":"https://i.imgur.com/XXKfJyv.jpg",
         "price": "💵",
         "duration": "6 hours",
         "hashtags":  ["#machupicchu", "#rainbowmountain", "#quadbike", "#cusco"],
@@ -58,7 +58,7 @@
         "city": "62a94fd4c2990d0593966315",
         "name": "Island Ultimate Jeep Safari",
         "personName": "Ariadne Bull",
-        "imagePerson":"imagePerson",
+        "imagePerson":"https://i.imgur.com/r2qB4m2.jpg",
         "price": "💵💵💵",
         "duration": "9 hours",
         "hashtags":  ["#aruba", "#safari", "#jeepsafari", "#island"],
@@ -69,7 +69,7 @@
         "city": "62a94fd4c2990d0593966315",
         "name": "Snorkeling Cruise and open bar",
         "personName": "Sam Henson",
-        "imagePerson":"imagePerson",
+        "imagePerson":"https://i.imgur.com/CZQazkc.jpg",
         "price": "💵💵",
         "duration": "3 hours",
         "hashtags": ["#aruba", "#bar", "#snorkel", "#fest"],
@@ -80,7 +80,7 @@
         "city": "62a94fd4c2990d0593966314",
         "name": "Sea cruise to Cayo Blanco",
         "personName": "Ellie-Rose Houghton",
-        "imagePerson":"imagePerson",
+        "imagePerson":"https://i.imgur.com/2Ylmsr2.jpg",
         "price": "💵💵",
         "duration": "6 hours",
         "hashtags":  ["#cuba", "#varadero", "#snorkel", "#cayoblanco"],
@@ -91,7 +91,7 @@
         "city": "62a94fd4c2990d0593966317",
         "name": "Rio By Night Private Tour: Experience Music, Dancing, Drinks and Local Culture",
         "personName": "Jeremy Crane",
-        "imagePerson":"imagePerson",
+        "imagePerson":"https://i.imgur.com/cF4bIqJ.jpg",
         "price": "💵",
         "duration": "6 hours",
         "hashtags":  ["#cuba", "#varadero", "#snorkel", "#cayoblanco"],
@@ -101,3 +101,10 @@
 
 
 ]
+
+
+
+
+
+
+

@@ -26,7 +26,7 @@ function Footer() {
                     {pages.map((page, index) => (
                         <LinkRouter to={page.to} key={index} className="buttonLink" >
                             <MenuItem >
-                                <Typography sx={{ fontFamily: 'Vollkorn', color: "#B329F8", fontSize: "3vh", padding: "0.5rem" }} textAlign="center">{page.name}</Typography>
+                                <Typography sx={{ fontFamily: 'Vollkorn', color: "rgba(6, 220, 248)", fontSize: "3vh", padding: "0.5rem" }} textAlign="center">{page.name}</Typography>
                             </MenuItem>
                         </LinkRouter>
                     ))}

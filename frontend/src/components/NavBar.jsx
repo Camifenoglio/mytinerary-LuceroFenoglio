@@ -55,7 +55,7 @@ const NavBar = () => {
                             fontSize: "2.5rem",
                             fontWeight: 500,
                             letterSpacing: '.3rem',
-                            color: 'violet',
+                            color: 'rgba(6, 220, 248)',
                             textDecoration: 'none',
                         }}
                     >
@@ -64,7 +64,7 @@ const NavBar = () => {
                         MiTinerary
                     </Typography>
                     {/* BOX HAMBURGUESA */}
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "violet" }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "rgba(6, 220, 248)" }}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -118,7 +118,7 @@ const NavBar = () => {
                             fontSize: "2rem",
                             fontWeight: 500,
                             letterSpacing: '.2rem',
-                            color: 'violet',
+                            color: 'rgba(6, 220, 248)',
                             textDecoration: 'none',
                         }}
                     >
@@ -141,7 +141,7 @@ const NavBar = () => {
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 {/* ICONO LOGUEO */}
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" sx={{ backgroundColor: "#7F19A6", color: "black", height: "6vh", width: "6vh" }} />
+                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" sx={{ backgroundColor: "rgba(6, 220, 248)", color: "black", height: "6vh", width: "6vh" }} />
                             </IconButton>
                         </Tooltip>
                         {/* MENU LOGUEO */}

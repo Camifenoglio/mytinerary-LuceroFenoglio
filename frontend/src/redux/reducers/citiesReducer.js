@@ -5,7 +5,7 @@ const initialState = {
 }
 
 const citiesReducer = (state = initialState, action) => {
-    
+
     switch (action.type) {
         case "GET_CITIES":
             return {
@@ -24,8 +24,8 @@ const citiesReducer = (state = initialState, action) => {
                 ...state,
                 filterCity: filter
             }
-            default:
-                return state
+        default:
+            return state
     }
 }
 

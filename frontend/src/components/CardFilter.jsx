@@ -2,9 +2,9 @@ import React from 'react';
 import { Link as LinkRouter } from 'react-router-dom';
 import '../styles/App.css';
 
-function CardFilter({propsCityFilter}) {
+function CardFilter({ propsCityFilter }) {
   return (
-    < div className = 'cardContainer cardFilterBox ' >
+    < div className='cardContainer cardFilterBox ' >
       {propsCityFilter.map(city =>
         <div key={city._id}
           style={{
@@ -31,7 +31,7 @@ function CardFilter({propsCityFilter}) {
           </div>
         </div>
       )}
-      </div >
+    </div >
 
   )
 }

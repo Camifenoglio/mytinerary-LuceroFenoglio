@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousel from 'react-grid-carousel';
 import '../styles/App.css';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 function Carrousel(props) {
 
