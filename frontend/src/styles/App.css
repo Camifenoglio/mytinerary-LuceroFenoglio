@@ -436,6 +436,18 @@ padding: 2vh;
     background-size: contain;
 }
 
+.botonSignup-in {
+    background-color: #83F6E1 !important ;
+    color: rgb(66, 65, 65)  !important;
+}
+
+.signup-inBox {
+    background-image: url(/public/assets/travel.png) !important;
+    background-size: 80rem !important;
+    background-position: center  !important;
+    background-repeat: no-repeat !important;
+}
+
 @media (max-width: 425px) {
     .FooterContainer {
         flex-direction: column;

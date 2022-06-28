@@ -9,6 +9,8 @@ import NotFound from './pages/NotFound';
 import ScrollToTop from "react-scroll-to-top";
 import FlightIcon from '@mui/icons-material/Flight';
 import CardDetails from './components/Details';
+import LogIn from './components/LogIn';
+import SignUp from './components/SignUp';
 import citiesActions from './redux/actions/citiesAction';
 import { useDispatch } from 'react-redux'
 
@@ -25,7 +27,7 @@ function App() {
 
   useEffect(() => {
     dispatch(citiesActions.getCities())
-
+       // eslint-disable-next-line 
   }, [])
 
   return (
@@ -36,6 +38,8 @@ function App() {
         <Route path="/Cities" element={<Cities />} />
         <Route path="*" element={<NotFound />} />
         <Route path='/details/:id' element={<CardDetails />} />
+        <Route path='/login' element={<LogIn />} />
+        <Route path='/signup' element={<SignUp />} />
       </Routes>
       <Footer />
       <ScrollToTop smooth style={{ backgroundColor: "transparent", width: "3rem", height: "3rem" }} component={<FlightIcon sx={{ color: "yellow", filter: "drop-shadow(3px 8px 2px rgb(0 0 0 / 0.9))", fontSize: "2.7rem" }} />} />

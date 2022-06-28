@@ -17,7 +17,7 @@ import {Link as LinkRouter} from "react-router-dom";
 
 
 const pages = [{name:'Home', to: '/'}, {name:'Cities', to: "/cities"}];
-const settings = ['Profile', 'Account', 'Log In', 'Logout'];
+const settings = [{name:'Log In', to: '/login'},{name: 'Sign Up', to:'/signup'}];
 
 const NavBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -55,7 +55,7 @@ const NavBar = () => {
                             fontSize: "2.5rem",
                             fontWeight: 500,
                             letterSpacing: '.3rem',
-                            color: 'rgba(6, 220, 248)',
+                            color: '#808080',
                             textDecoration: 'none',
                         }}
                     >
@@ -118,7 +118,7 @@ const NavBar = () => {
                             fontSize: "2rem",
                             fontWeight: 500,
                             letterSpacing: '.2rem',
-                            color: 'rgba(6, 220, 248)',
+                            color: '#808080',
                             textDecoration: 'none',
                         }}
                     >
@@ -161,10 +161,12 @@ const NavBar = () => {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center" sx={{fontFamily:'Vollkorn', color: "white"}}>{setting}</Typography>
+                            {settings.map((setting, index) => (
+                                <LinkRouter to={setting.to} key={index} onClick={handleCloseUserMenu}>
+                                <MenuItem>
+                                    <Typography textAlign="center" sx={{fontFamily:'Vollkorn', color: "white"}}>{setting.name}</Typography>
                                 </MenuItem>
+                                </LinkRouter>
                             ))}
                         </Menu>
                     </Box>
