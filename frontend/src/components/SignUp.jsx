@@ -9,26 +9,34 @@ import EmailIcon from '@mui/icons-material/Email';
 import KeyIcon from '@mui/icons-material/Key';
 import IconButton from '@mui/material/IconButton';
 import {Link as LinkRouter} from "react-router-dom";
-import {useState} from 'react'
-
-
+import {useState} from 'react';
+import userAction from '../redux/actions/userAction';
+import {useDispatch} from 'react-redux'
 
 function SignUp() {
+    const dispatch= useDispatch()
     const [firstName,setFirstName] = useState("")
     const [lastName,setLastName] = useState("")
     const [email,setEmail] = useState("")
     const [pass,setPass] = useState("")
 
     const handleSubmit = (event) => {
+        console.log(event)
         event.preventDefault()
         const userData = {
 			firstName: firstName,
             lastName: lastName,
             email: email,
 			password: pass,
-			from: "form-Signup"
+			from: "form-signup"
 		}
-       // props.signUpUser(userData)
+        console.log(userData)
+       dispatch(userAction.signUpUser(userData))
+       setFirstName("")
+       setLastName("")
+       setEmail("")
+       setPass("")
+
     }
     return (
         <div className='itiNotFoundBox' style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>

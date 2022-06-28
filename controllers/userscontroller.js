@@ -1,4 +1,5 @@
 const User = require('../models/user')
+const bcryptjs = require('bcryptjs')
 
 const usersControllers = {
     signUpUsers: async (req, res) => {
@@ -16,23 +17,24 @@ const usersControllers = {
                     const passwordHashed = bcryptjs.hashSync(password, 10)
                     userExist.from.push(from)
                     userExist.password.push(passwordHashed)
+                    await userExist.save()
                     res.json({
                         success: true,
                         from: 'signup',
-                        message: "We add" + from + "to your means to signIn"
+                        message: "We add " + from + " to your means to signIn"
                     })
                 }
             } else {
                 const passwordHashed = bcryptjs.hashSync(password, 10)
+                console.log(passwordHashed)
                 const newUser = await new User({
-                    firstName,
-                    lastName,
-                    email,
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
                     password: [passwordHashed],
-                    verifiedEmail: false,
                     from: [from]
                 })
-                if (from !== 'form-Signup') {
+                if (from !== 'form-signup') {
                     await newUser.save()
                     res.json({
                         success: true,
@@ -44,7 +46,7 @@ const usersControllers = {
                     res.json({
                         success: true,
                         from: 'signup',
-                        message: 'We sent yo an email to validate it, please check your email to complete the Sign Up'
+                        message: 'We sent you an email to validate it, please check your email to complete the Sign Up'
                     })
                 }
             }
@@ -54,13 +56,15 @@ const usersControllers = {
     },
     logInUser: async (req, res) => {
         const { email, password, from } = req.body.logedUser
+        console.log(req.body.logedUser)
         try {
-            const userExist = await User.findOne({ email })
-            const indexPass = userExist.from.indexOf(from)
+            const userExist = await User.findOne({email})
+            console.log(userExist)
+           // const indexPass = userExist.from.indexOf(from)
             if (!userExist) {
-                res.json({ success: false, message: "Your user has not been registered, please Sign up." })
+                res.json({ success: false, message: "Your email has not been registered, please Sign up." })
             } else {
-                if (from !== "form-Signup") {
+                if (from !== "form-signup") {
                     let passwordMatch = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
                     if (passwordMatch.length > 0) {
                         const userData = {
@@ -75,13 +79,13 @@ const usersControllers = {
                             success: true,
                             from: from,
                             response: { userData },
-                            message: "Welcome " + userData.firstName + userData.lastName,
+                            message: "Welcome " + userData.firstName + " " + userData.lastName,
                         })
                     } else {
                         res.json({
                             success: false,
                             from: from,
-                            message: "You did not register with " + from + "if you want to enter with this method please Sign Up with " + from
+                            message: "You did not register with " + from + " if you want to enter with this method please Sign Up with " + from
                         })
                     }
                 } else {
@@ -98,7 +102,7 @@ const usersControllers = {
                             success: true,
                             from: from,
                             response: { token, userData },
-                            message: "Welcome " + userData.firstName + userData.lastName,
+                            message: "Welcome " + userData.firstName + " " + userData.lastName,
                         })
                     } else {
                         res.json({
