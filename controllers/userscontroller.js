@@ -55,17 +55,17 @@ const usersControllers = {
         }
     },
     logInUser: async (req, res) => {
-        const { email, password, from } = req.body.logedUser
-        console.log(req.body.logedUser)
+        const { email, password, from } = req.body.userData
+
         try {
             const userExist = await User.findOne({email})
-            console.log(userExist)
            // const indexPass = userExist.from.indexOf(from)
             if (!userExist) {
                 res.json({ success: false, message: "Your email has not been registered, please Sign up." })
             } else {
+                let passwordMatch = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
+                console.log(passwordMatch.length)
                 if (from !== "form-signup") {
-                    let passwordMatch = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
                     if (passwordMatch.length > 0) {
                         const userData = {
                             id: userExist._id,
@@ -89,6 +89,7 @@ const usersControllers = {
                         })
                     }
                 } else {
+                    // let passwordMatch = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
                     if (passwordMatch.length > 0) {
                         const userData = {
                             id: userExist._id,
@@ -101,7 +102,7 @@ const usersControllers = {
                         res.json({
                             success: true,
                             from: from,
-                            response: { token, userData },
+                            response: { userData },
                             message: "Welcome " + userData.firstName + " " + userData.lastName,
                         })
                     } else {
@@ -114,7 +115,7 @@ const usersControllers = {
                 }
             }
         } catch (error) {
-            res.json({ success: false, message: "Something went wrong. Try again in a few seconds" })
+            res.json({ success: false, message: "Something went wrong. Try again in a few seconds", console: console.log(error) })
         }
     },
 }

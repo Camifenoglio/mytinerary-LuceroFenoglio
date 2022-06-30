@@ -1,4 +1,3 @@
-import react from 'react';
 import { Card, Text, Avatar, Collapse, Grid, Button } from '@nextui-org/react';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
@@ -23,7 +22,7 @@ function Itinerary({ data }) {
                   {itinerary.personName}
                 </Text>
               </Grid>
-              <Grid css={{ display: "flex", flexDirection: "row", justifyContent: "center", flexWrap: "wrap", gap: "4rem", alignItems: "center", flexWrap: "wrap", marginTop: "1vh", marginBottom: "1vh" }}>
+              <Grid css={{ display: "flex", flexDirection: "row", justifyContent: "center", flexWrap: "wrap", gap: "4rem", alignItems: "center", marginTop: "1vh", marginBottom: "1vh" }}>
                 <Text css={{ fontFamily: "Vollkorn", marginTop: "1vh", fontSize: "4vh", color: "rgb(90, 90, 80)", textShadow: "0px 2px 5px" }}>Duration: 🕓{itinerary.duration}</Text>
                 <Text css={{ fontFamily: "Vollkorn", fontSize: "4vh", color: "rgb(66, 65, 65)", textShadow: "0px 2px 5px" }}>Price: {itinerary.price}</Text>
               </Grid>

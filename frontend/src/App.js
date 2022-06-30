@@ -12,8 +12,8 @@ import CardDetails from './components/Details';
 import LogIn from './components/LogIn';
 import SignUp from './components/SignUp';
 import citiesActions from './redux/actions/citiesAction';
-import { useDispatch } from 'react-redux'
-
+import { useDispatch } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -32,6 +32,16 @@ function App() {
 
   return (
     <div className="App">
+                  <ToastContainer position="bottom-right"
+            theme='colored'
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover />
       <NavBar />
       <Routes>
         <Route path="/" element={<Index />} />

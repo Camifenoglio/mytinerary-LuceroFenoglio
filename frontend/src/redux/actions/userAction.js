@@ -4,27 +4,9 @@ const userAction = {
     signUpUser: (userData) => {
 
         return async (dispatch, getState) => {
-            const res = await axios.post('http://localhost:4000/api/auth/signup', {userData})
-            dispatch({
-                type: 'MESSAGE',
-                payload: {
-                    view: true,
-                    message: res.data.message,
-                    success: res.data.success
-                }
-            })
-        }
-    },
-    logInUser: (logedUser) => {
-        return async (dispatch, getState) => {
-            const res = await axios.post('http://localhost:4000/api/auth/login', {logedUser})
-            if(res.data.success) {
-                localStorage.setItem('token',res.data.response.token)
-                dispatch({
-                    type: 'USER',
-                    payload: res.data.response.userData
-                })
-            } else {
+            try {
+                const res = await axios.post('http://localhost:4000/api/auth/signup', { userData })
+                console.log(res)
                 dispatch({
                     type: 'MESSAGE',
                     payload: {
@@ -33,9 +15,28 @@ const userAction = {
                         success: res.data.success
                     }
                 })
+                return res
+            } catch (error) {
+                console.log(error)
             }
-        } 
+        }
+    },
+    logInUser: (userData) => {
+        return async (dispatch, getState) => {
+            const res = await axios.post('http://localhost:4000/api/auth/login', { userData })
+            console.log(res.data.message)
+                dispatch({
+                    type: 'USER',
+                    payload: {
+                        view: true,
+                        message: res.data.message,
+                        success: res.data.success
+                    }
+                })
+                return res
+            }
+        }
     }
-}
+// }
 
 export default userAction

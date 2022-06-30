@@ -8,28 +8,31 @@ import EmailIcon from '@mui/icons-material/Email';
 import KeyIcon from '@mui/icons-material/Key';
 import IconButton from '@mui/material/IconButton';
 import {Link as LinkRouter} from "react-router-dom";
-import {useState} from 'react';
 import userAction from '../redux/actions/userAction';
-import {useDispatch} from 'react-redux'
-
+import {useDispatch} from 'react-redux';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function LogIn() {
+
     const dispatch= useDispatch()
 
-    const handleSubmit = (event) => {
-        console.log(event)
+    const handleSubmit = async (event) => {
         event.preventDefault()
         const userData = {
             email: event.target[0].value,
 			password:event.target[2].value,
 			from: "form-signup"
 		}
-        console.log(userData)
-       dispatch(userAction.logInUser(userData))
+       const res = await dispatch(userAction.logInUser(userData))
+       if (res.data.success) {
+        toast.success(res.data.message)
+    } else {
+        toast.error(res.data.message)
+    }
        event.target[0].value= ""
        event.target[2].value= ""
-
     }
 
     return (
