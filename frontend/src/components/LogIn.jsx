@@ -3,7 +3,6 @@ import { Card, Text, Button } from '@nextui-org/react';
 import { Grid, Input } from '@nextui-org/react';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import GoogleIcon from '@mui/icons-material/Google';
 import EmailIcon from '@mui/icons-material/Email';
 import KeyIcon from '@mui/icons-material/Key';
 import IconButton from '@mui/material/IconButton';

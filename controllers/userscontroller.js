@@ -1,11 +1,15 @@
 const User = require('../models/user')
 const bcryptjs = require('bcryptjs')
+const crypto= require('crypto')
+const sendEmail = require('../controllers/sendEmail')
 
 const usersControllers = {
     signUpUsers: async (req, res) => {
         let { firstName, lastName, email, image, password, from } = req.body.userData
         try {
             const userExist = await User.findOne({ email })
+            const verification = false
+            const uniqueString = crypto.randomBytes(15).toString('hex')
             if (userExist) {
                 if (userExist.from.indexOf(from) !== -1) {
                     res.json({
@@ -32,18 +36,23 @@ const usersControllers = {
                     lastName: lastName,
                     email: email,
                     image: image,
+                    uniqueString: uniqueString,
+                    verification: verification,
                     password: [passwordHashed],
                     from: [from]
                 })
+                console.log(newUser)
                 if (from !== 'form-signup') {
                     await newUser.save()
+                    console.log(newUser)
                     res.json({
                         success: true,
-                        from: "signup",
-                        message: "Congrats your user was created with " + from
+                        from: from,
+                        message: "Congrats your user was created with " + from,
                     })
                 } else {
                     await newUser.save()
+                    await sendEmail(email, uniqueString)
                     res.json({
                         success: true,
                         from: 'signup',
@@ -52,7 +61,7 @@ const usersControllers = {
                 }
             }
         } catch (error) {
-            res.json({ success: false, message: "Something went wrong. Try again in a few seconds" })
+            res.json({ console: console.log(error),success: false, message: "Something went wrong. Try again in a few seconds" })
         }
     },
     logInUser: async (req, res) => {
@@ -91,7 +100,6 @@ const usersControllers = {
                         })
                     }
                 } else {
-                    // let passwordMatch = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
                     if (passwordMatch.length > 0) {
                         const userData = {
                             id: userExist._id,
@@ -121,9 +129,25 @@ const usersControllers = {
             res.json({ success: false, message: "Something went wrong. Try again in a few seconds", console: console.log(error) })
         }
     },
+    verifyMail: async (req,res) => {
+        const string =req.params.string 
+        console.log("soy la const string")
+        console.log(string)
+        const user = await User.findOne({uniqueString: string})
+        console.log(user)
+        if(user) {
+            user.verification = true
+            await user.save()
+            res.redirect("http://localhost:3000")      
+        }
+        else{
+            res.json({
+                success:false,
+                message: 'email has not been confirmed yet'
+            })
+        }
+    }
 }
-
-
 
 module.exports = usersControllers
 

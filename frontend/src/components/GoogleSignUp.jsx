@@ -17,7 +17,7 @@ export default function GoogleSignUp() {
             password: userObject.sub,
             from: 'google'
         }))
-        
+        const errormsg = res.data.message
         if (res.data.from === "validator") {
             errormsg.forEach(e => {
                 toast.error(e.message)
@@ -29,16 +29,12 @@ export default function GoogleSignUp() {
                 toast.error(res.data.message)
             }
 
-
-
-
-
     }
 
     useEffect(() => {
         /* global google*/
         google.accounts.id.initialize({
-            client_id: '470091252995-1g8bn7svaja6kniip320apitapb5aum7.apps.googleusercontent.com',
+            client_id: '768882882778-flin70kqbu8o9udhua7gok9a8dvntlpg.apps.googleusercontent.com',
             callback: handleCallBackResponse
         });
 
