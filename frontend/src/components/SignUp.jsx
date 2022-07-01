@@ -3,7 +3,6 @@ import { Card, Text, Button } from '@nextui-org/react';
 import { Grid, Input } from '@nextui-org/react';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import GoogleIcon from '@mui/icons-material/Google';
 import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import KeyIcon from '@mui/icons-material/Key';
@@ -12,14 +11,17 @@ import { Link as LinkRouter } from "react-router-dom";
 import { useState } from 'react';
 import userAction from '../redux/actions/userAction';
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-hot-toast';
+import GoogleSignUp from './GoogleSignUp';
+import InputLabel from '@mui/material/InputLabel';
+import NativeSelect from '@mui/material/NativeSelect';
 
 function SignUp() {
     const dispatch = useDispatch()
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
+    const [image, setImage] = useState("")
     const [pass, setPass] = useState("")
 
     const handleSubmit = async (event) => {
@@ -29,13 +31,14 @@ function SignUp() {
             firstName: firstName,
             lastName: lastName,
             email: email,
+            image: image,
             password: pass,
             from: "form-signup"
         }
         console.log(userData)
         const res = await dispatch(userAction.signUpUser(userData))
         console.log(res)
-        const errormsg= res.data.message
+        const errormsg = res.data.message
 
         if (res.data.from === "validator") {
             errormsg.forEach(e => {
@@ -53,6 +56,7 @@ function SignUp() {
         setFirstName("")
         setLastName("")
         setEmail("")
+        setImage("")
         setPass("")
 
     }
@@ -61,8 +65,27 @@ function SignUp() {
             <Text css={{ fontFamily: "Allura", fontSize: "50px", color: "grey", textShadow: "8px -2px 3px white", margin: "1rem" }}>Register!</Text>
             <Card isHoverable variant="bordered" css={{ mw: "30rem", backgroundColor: "WhiteSmoke", boxShadow: "0px 1px 20px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1rem" }} className='signup-inBox'>
                 <Text style={{ fontFamily: "Vollkorn", fontSize: "4vh", color: "grey", paddingTop: "1rem" }}>Sign Up</Text>
-                <Grid.Container css={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }} gap={3}>
+                <Grid.Container css={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", paddingTop: 0 }} gap={3}>
                     <form onSubmit={handleSubmit}>
+                        <Grid css={{paddingTop: 0, paddingBottom: 0}}>
+                            <InputLabel variant="standard" htmlFor="uncontrolled-native"
+                            sx={{ color: "#808070", fontSize: "14px"}}>
+                                Country
+                            </InputLabel>
+                            <NativeSelect
+                            sx={{ width:'300px', color: "#808070"}}
+                           
+                                defaultValue={30}
+                                inputProps={{
+                                    name: 'age',
+                                    id: 'uncontrolled-native',
+                                }}
+                            >
+                                <option value={10}>Ten</option>
+                                <option value={20}>Twenty</option>
+                                <option value={30}>Thirty</option>
+                            </NativeSelect>
+                        </Grid>
                         <Grid>
                             <Input
                                 className='inputForm'
@@ -91,6 +114,22 @@ function SignUp() {
                                 onChange={e => setLastName(e.target.value)}
                                 contentRight={
                                     <PersonIcon width="16" height="16" fill="#f5a623" sx={{ color: "#83F6E1" }} />
+                                }
+                            />
+                        </Grid>
+                        <Grid>
+                            <Input
+                                clearable
+                                underlined
+                                width='300px'
+                                color="primary"
+                                type="text"
+                                label="Url Image"
+                                value={image}
+                                onChange={e => setImage(e.target.value)}
+                                labelPlaceholder="Image"
+                                contentRight={
+                                    <EmailIcon width="16" height="16" fill="#f5a623" sx={{ color: "#83F6E1" }} />
                                 }
                             />
                         </Grid>
@@ -141,8 +180,9 @@ function SignUp() {
                         <IconButton sx={{ color: "#83F6E1" }} aria-label="InstagramIcon">
                             <InstagramIcon />
                         </IconButton>
-                        <IconButton sx={{ color: "#83F6E1" }} aria-label="InstagramIcon">
-                            <GoogleIcon />
+                        <IconButton sx={{ color: "#83F6E1" }} aria-label="GoogleIcon">
+                        <GoogleSignUp />
+                         
                         </IconButton>
                     </Grid>
                     <Grid css={{ display: "flex", alignItems: "center", gap: "1rem" }}>

@@ -10,8 +10,10 @@ import IconButton from '@mui/material/IconButton';
 import {Link as LinkRouter} from "react-router-dom";
 import userAction from '../redux/actions/userAction';
 import {useDispatch} from 'react-redux';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+import toast from 'react-hot-toast';
+import GoogleLogIn from './GoogleLogIn'
 
 
 function LogIn() {
@@ -83,7 +85,8 @@ function LogIn() {
                             <InstagramIcon />
                         </IconButton>
                         <IconButton sx={{ color: "#83F6E1"}} aria-label="InstagramIcon">
-                            <GoogleIcon />
+                            <GoogleLogIn />
+                            {/* <GoogleIcon /> */}
                         </IconButton>
                     </Grid>
                     <Grid css={{ display: "flex", alignItems: "center", gap: "1rem"}}>

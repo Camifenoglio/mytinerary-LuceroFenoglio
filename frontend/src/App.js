@@ -13,7 +13,9 @@ import LogIn from './components/LogIn';
 import SignUp from './components/SignUp';
 import citiesActions from './redux/actions/citiesAction';
 import { useDispatch } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
+import { Toaster } from 'react-hot-toast'
+
 
 function App() {
 
@@ -32,7 +34,18 @@ function App() {
 
   return (
     <div className="App">
-                  <ToastContainer position="bottom-right"
+      <Toaster
+        toastOptions={{
+          className: '',
+          style: {
+            boxShadow: "0px 3px 10px rgba(8, 8, 8, 0.413)",
+            padding: '8px',
+            color: 'black',
+            textAlign: "center",
+            fontSize: "13px",
+          },
+        }} />
+                  {/* <ToastContainer position="bottom-right"
             theme='colored'
             autoClose={5000}
             hideProgressBar={false}
@@ -41,7 +54,7 @@ function App() {
             rtl={false}
             pauseOnFocusLoss
             draggable
-            pauseOnHover />
+            pauseOnHover /> */}
       <NavBar />
       <Routes>
         <Route path="/" element={<Index />} />

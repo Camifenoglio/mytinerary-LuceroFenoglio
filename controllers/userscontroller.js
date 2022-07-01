@@ -3,7 +3,7 @@ const bcryptjs = require('bcryptjs')
 
 const usersControllers = {
     signUpUsers: async (req, res) => {
-        let { firstName, lastName, email, password, from } = req.body.userData
+        let { firstName, lastName, email, image, password, from } = req.body.userData
         try {
             const userExist = await User.findOne({ email })
             if (userExist) {
@@ -31,6 +31,7 @@ const usersControllers = {
                     firstName: firstName,
                     lastName: lastName,
                     email: email,
+                    image: image,
                     password: [passwordHashed],
                     from: [from]
                 })
@@ -72,6 +73,7 @@ const usersControllers = {
                             firstName: userExist.firstName,
                             lastName: userExist.lastName,
                             email: userExist.email,
+                            image: userExist.image,
                             from: from,
                         }
                         await userExist.save()
@@ -96,6 +98,7 @@ const usersControllers = {
                             firstName: userExist.firstName,
                             lastName: userExist.lastName,
                             email: userExist.email,
+                            image: userExist.image,
                             from: from,
                         }
                         await userExist.save()

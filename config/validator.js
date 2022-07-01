@@ -24,10 +24,9 @@ const validator = (req, res, next) => {
                 'string.min': '"last name": min 3 characters',
                 'string.max': '"last name": max 20 characters'
             }),
-        // imgProfile: joi.string()
-        //     .min(10)
-        //     .trim()
-        //     .required(),
+        image: joi.string()
+            .min(5)
+            .trim(),
         email: joi.string()
             .email({ minDomainSegments: 2 })
             .required()
@@ -46,7 +45,6 @@ const validator = (req, res, next) => {
             // country: joi.string()
             // .trim(),
         from: joi.string()
-            // .required()
     })
     const validation = schema.validate(req.body.userData, { abortEarly: false })
     if (validation.error) {
