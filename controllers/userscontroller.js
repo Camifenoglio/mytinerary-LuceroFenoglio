@@ -2,6 +2,7 @@ const User = require('../models/user')
 const bcryptjs = require('bcryptjs')
 const crypto= require('crypto')
 const sendEmail = require('../controllers/sendEmail')
+const jwt = require("jsonwebtoken")
 
 const usersControllers = {
     signUpUsers: async (req, res) => {
@@ -41,10 +42,10 @@ const usersControllers = {
                     password: [passwordHashed],
                     from: [from]
                 })
-                console.log(newUser)
+               // console.log(newUser)
                 if (from !== 'form-signup') {
                     await newUser.save()
-                    console.log(newUser)
+                   // console.log(newUser)
                     res.json({
                         success: true,
                         from: from,
@@ -74,7 +75,7 @@ const usersControllers = {
                 res.json({ success: false, message: "Your email has not been registered, please Sign up." })
             } else {
                 let passwordMatch = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
-                console.log(passwordMatch.length)
+              //  console.log(passwordMatch.length)
                 if (from !== "form-signup") {
                     if (passwordMatch.length > 0) {
                         const userData = {
@@ -86,10 +87,12 @@ const usersControllers = {
                             from: from,
                         }
                         await userExist.save()
+                        const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24})
+                       // console.log(token)
                         res.json({
                             success: true,
                             from: from,
-                            response: { userData },
+                            response: { token, userData },
                             message: "Welcome " + userData.firstName + " " + userData.lastName,
                         })
                     } else {
@@ -109,11 +112,13 @@ const usersControllers = {
                             image: userExist.image,
                             from: from,
                         }
+                        const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24})
+                      //  console.log(token)
                         await userExist.save()
                         res.json({
                             success: true,
                             from: from,
-                            response: { userData },
+                            response: { token, userData },
                             message: "Welcome " + userData.firstName + " " + userData.lastName,
                         })
                     } else {
@@ -131,10 +136,10 @@ const usersControllers = {
     },
     verifyMail: async (req,res) => {
         const string =req.params.string 
-        console.log("soy la const string")
-        console.log(string)
+      //  console.log("soy la const string")
+      //  console.log(string)
         const user = await User.findOne({uniqueString: string})
-        console.log(user)
+     //   console.log(user)
         if(user) {
             user.verification = true
             await user.save()
@@ -146,7 +151,27 @@ const usersControllers = {
                 message: 'email has not been confirmed yet'
             })
         }
-    }
+    },
+    verifyToken:(req,res) =>{
+
+    if(req,res){
+        res.json({
+            success:true,
+            response:{
+                id:req.user.id,
+                 firstName:req.user.firstName,
+                 lastName:req.user.lastName,
+                 email:req.user.email, 
+                 from:"token"},
+            messagge:"Welcome " + req.user.firstName + " " + req.user.lastName
+        })
+     } else {
+            res.json({
+                sucess:false,
+                message: "Please, do the signIn again"
+            })
+        }
+    },
 }
 
 module.exports = usersControllers

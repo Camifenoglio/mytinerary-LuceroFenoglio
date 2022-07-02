@@ -13,9 +13,8 @@ import LogIn from './components/LogIn';
 import SignUp from './components/SignUp';
 import citiesActions from './redux/actions/citiesAction';
 import { useDispatch } from 'react-redux';
-// import { ToastContainer } from 'react-toastify';
-import { Toaster } from 'react-hot-toast'
-
+import { Toaster } from 'react-hot-toast';
+import userAction from './redux/actions/userAction';
 
 function App() {
 
@@ -26,10 +25,19 @@ function App() {
   }, [])
 
   const dispatch = useDispatch()
+  // useEffect(() => {
+  //   dispatch(citiesActions.getCities())
+  //   dispatch(userAction.verifyToken())
+  //      // eslint-disable-next-line 
+  // }, [])
 
   useEffect(() => {
     dispatch(citiesActions.getCities())
-       // eslint-disable-next-line 
+    if (localStorage.getItem("token") !== null) {
+      const token = localStorage.getItem("token")
+      dispatch(userAction.verifyToken(token))
+    }
+    // eslint-disable-next-line 
   }, [])
 
   return (
@@ -45,16 +53,6 @@ function App() {
             fontSize: "13px",
           },
         }} />
-                  {/* <ToastContainer position="bottom-right"
-            theme='colored'
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover /> */}
       <NavBar />
       <Routes>
         <Route path="/" element={<Index />} />
