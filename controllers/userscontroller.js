@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken")
 
 const usersControllers = {
     signUpUsers: async (req, res) => {
-        let { firstName, lastName, email, image, password, from } = req.body.userData
+        let { firstName, lastName, email, image, country, password, from } = req.body.userData
         try {
             const userExist = await User.findOne({ email })
             const verification = false
@@ -37,6 +37,7 @@ const usersControllers = {
                     lastName: lastName,
                     email: email,
                     image: image,
+                    country: country,
                     uniqueString: uniqueString,
                     verification: verification,
                     password: [passwordHashed],
@@ -66,7 +67,7 @@ const usersControllers = {
         }
     },
     logInUser: async (req, res) => {
-        const { email, password, from } = req.body.userData
+        const { email, password, from, image } = req.body.userData
 
         try {
             const userExist = await User.findOne({email})
@@ -84,6 +85,7 @@ const usersControllers = {
                             lastName: userExist.lastName,
                             email: userExist.email,
                             image: userExist.image,
+                            country: userExist.country,
                             from: from,
                         }
                         await userExist.save()
@@ -103,6 +105,7 @@ const usersControllers = {
                         })
                     }
                 } else {
+                    if (userExist.verification === true) { 
                     if (passwordMatch.length > 0) {
                         const userData = {
                             id: userExist._id,
@@ -110,6 +113,7 @@ const usersControllers = {
                             lastName: userExist.lastName,
                             email: userExist.email,
                             image: userExist.image,
+                            country: userExist.country,
                             from: from,
                         }
                         const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24})
@@ -128,12 +132,20 @@ const usersControllers = {
                             message: "The username or password does not match"
                         })
                     }
+                } else {
+                    res.json({
+                        success: false,
+                        from: from,
+                        message: "Please check and verify your email"
+                    })
+                }
                 }
             }
         } catch (error) {
             res.json({ success: false, message: "Something went wrong. Try again in a few seconds", console: console.log(error) })
         }
     },
+
     verifyMail: async (req,res) => {
         const string =req.params.string 
       //  console.log("soy la const string")
@@ -143,7 +155,7 @@ const usersControllers = {
         if(user) {
             user.verification = true
             await user.save()
-            res.redirect("http://localhost:3000")      
+            res.redirect("http://localhost:3000/login")      
         }
         else{
             res.json({

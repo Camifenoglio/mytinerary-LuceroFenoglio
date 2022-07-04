@@ -6,7 +6,7 @@ const usersControllers = require ('../controllers/userscontroller')
 const validator = require ('../config/validator')
 const {getCities, getOneCity, addCity, modifyCity, removeCity, multiplesCities} = citiesControllers
 const {getItineraries, getOneItinerary, addItinerary, modifyItinerary,  removeItinerary, multiplesItineraries,findItinerariesFromCity} = itinerariesControllers
-const {signUpUsers, logInUser, verifyMail, verifyToken} = usersControllers
+const {signUpUsers, logInUser, logOutUser, verifyMail, verifyToken} = usersControllers
 const passport= require('../config/passport')
 
 Router.route('/cities')

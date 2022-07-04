@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux';
 import userAction from '../redux/actions/userAction';
 import { toast } from 'react-hot-toast';
 
-export default function GoogleSignUp() {
+
+export default function GoogleSignUp(props) {
     const dispatch = useDispatch();
 
     async function handleCallBackResponse(response) {
@@ -14,9 +15,11 @@ export default function GoogleSignUp() {
             lastName: userObject.family_name,
             email: userObject.email,
             image: userObject.picture,
+            country: props.props,
             password: userObject.sub,
             from: 'google'
         }))
+        console.log(res)
         const errormsg = res.data.message
         if (res.data.from === "validator") {
             errormsg.forEach(e => {
@@ -40,7 +43,7 @@ export default function GoogleSignUp() {
 
         google.accounts.id.renderButton(
             document.getElementById('buttonDiv'),
-            { theme: "outline", size: "medium", type: "icon", shape:"circle", size: "medium" }
+            { theme: "outline", size: "medium", type: "icon", shape:"circle" }
         )
         // eslint-disable-next-line
     }, []);

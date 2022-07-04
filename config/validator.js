@@ -42,8 +42,7 @@ const validator = (req, res, next) => {
                 'string.min': '"password": min 8 characters',
                 'string.max': '"password": max 30 characters'
             }),
-            // country: joi.string()
-            // .trim(),
+            country: joi.string(),
         from: joi.string()
     })
     const validation = schema.validate(req.body.userData, { abortEarly: false })
