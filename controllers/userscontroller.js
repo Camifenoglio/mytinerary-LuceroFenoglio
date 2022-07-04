@@ -21,8 +21,9 @@ const usersControllers = {
                     })
                 } else {
                     const passwordHashed = bcryptjs.hashSync(password, 10)
-                    userExist.from.push(from)
                     userExist.password.push(passwordHashed)
+                    userExist.from.push(from)
+                    userExist.verification= true
                     await userExist.save()
                     res.json({
                         success: true,
