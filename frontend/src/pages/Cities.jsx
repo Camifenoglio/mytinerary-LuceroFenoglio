@@ -17,7 +17,6 @@ function Cities() {
     // eslint-disable-next-line 
   }, [input])
 
-  console.log(input)
   const cityFilter = useSelector(store => store.citiesReducer.filterCity)
 
   return (
@@ -26,7 +25,7 @@ function Cities() {
         <div className='inputBox'>
           <input
             type="text"
-            style={{ width: "20vw", marginTop: "2vh", height: "5vh", borderRadius: "15px", textAlign: "center", backgroundColor: "transparent", color: "white", fontFamily: "vollkon", fontSize: "1.3rem" }}
+            style={{ width: "20vw", marginTop: "2vh", height: "5vh", borderRadius: "15px", textAlign: "center", backgroundColor: "transparent", color: "grey", fontFamily: "vollkon", fontSize: "1.3rem" }}
             placeholder="Find your city"
             className='inputSearch'
             onKeyUp={e => setInput(e.target.value)}

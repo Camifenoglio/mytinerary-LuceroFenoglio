@@ -49,61 +49,6 @@
     text-shadow: 2px 2px 3px rgb(15, 15, 15);
 }
 
-.buttoncities {
-    border: 2px solid rgba(6, 220, 248, 0.541);
-    border-radius: 20px;
-    background-color: rgba(6, 220, 248, 0.384);
-    padding: 0.5rem;
-    width: 25vh;
-    font-family: "Vollkorn";
-    text-shadow: 2px 2px 1px rgb(15, 15, 15);
-    font-weight: 500;
-    color: white;
-    font-size: 5vh;
-    margin-top: 3vh;
-}
-
-.buttoncities:link,
-.buttoncities:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    color: rgb(27, 27, 27);
-    padding: 10px 30px;
-    border: 1px solid;
-    border-radius: 1000px;
-    display: inline-block;
-    transition: all .2s;
-    position: relative;
-}
-
-.buttoncities:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
-}
-
-.buttoncities:active {
-    transform: translateY(-3px);
-}
-
-.buttoncities::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
-    top: 0;
-    left: 0;
-    position: absolute;
-    z-index: -1;
-    transition: all .3s;
-}
-
-.buttoncities:hover::after {
-    background-color: rgb(0, 238, 255);
-    transform: scaleX(1.4) scaleY(1.5);
-    opacity: 0;
-}
-
 /* CARROUSEL */
 .nameCities {
     text-align: center;
@@ -138,6 +83,7 @@
 .appsContainer {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 2rem;
 }
 
@@ -146,7 +92,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    min-height: 66vh;
+    min-height: 73vh;
     background-image: url(/public/assets/fondoitinerary.jpg);
 }
 
@@ -178,7 +124,7 @@ padding-top: 2vh;
     height: 5vh !important;
     border-radius: 15px !important;
     text-align: center !important;
-    color: white !important;
+    color: grey !important;
 }
 
 
@@ -434,6 +380,7 @@ padding: 2vh;
 .itiNotFoundBox {
     background-image: url(/public/assets/fondoitinerary.jpg);
     background-size: contain;
+    min-height: 75vh;
 }
 
 .botonSignup-in {
@@ -446,6 +393,7 @@ padding: 2vh;
     background-size: 80rem !important;
     background-position: center  !important;
     background-repeat: no-repeat !important;
+    /* min-height: 67vh; */
 }
 
 @media (max-width: 425px) {
@@ -468,6 +416,20 @@ padding: 2vh;
     .card {
         width: 80% !important;
     }
+    .durationBox {
+        gap: 0 !important;
+        margin-top: 0 important!;
+        margin-bottom: 0 !important;
+    }
+    .itineraryperson{
+        margin: 0 !important;
+    }
+    .hashBox {
+        gap: 0 !important;
+    }
+    .boxBodyItinerary {
+        padding:  0 !important;
+    }
 
 }
 
@@ -477,6 +439,12 @@ padding: 2vh;
     }
     .card-title-details {
         font-size: 7vh !important;
+    }
+    .cardBox {
+        width:90vw !important;
+    }
+    .signup-inBox {
+        width: "20rem" !important;
     }
 }
 
@@ -501,6 +469,7 @@ padding: 2vh;
     .card-title-details {
         font-size: 13vh;
     }
+
 }
 
 @media (min-width: 1500px) {

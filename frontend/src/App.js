@@ -58,7 +58,7 @@ function App() {
         <Route path="/Cities" element={<Cities />} />
         <Route path="/*" element={<NotFound />} />
         <Route path='/details/:id' element={<CardDetails />} />
-        {!user && <Route path='/login' element={<LogIn />} /> }
+        {!user && <Route path='/login' element={<LogIn />} />}
         {!user && <Route path='/signup' element={<SignUp />} />}
       </Routes>
       <Footer />

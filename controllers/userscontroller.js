@@ -1,6 +1,6 @@
 const User = require('../models/user')
 const bcryptjs = require('bcryptjs')
-const crypto= require('crypto')
+const crypto = require('crypto')
 const sendEmail = require('../controllers/sendEmail')
 const jwt = require("jsonwebtoken")
 
@@ -43,10 +43,8 @@ const usersControllers = {
                     password: [passwordHashed],
                     from: [from]
                 })
-               // console.log(newUser)
                 if (from !== 'form-signup') {
                     await newUser.save()
-                   // console.log(newUser)
                     res.json({
                         success: true,
                         from: from,
@@ -63,20 +61,18 @@ const usersControllers = {
                 }
             }
         } catch (error) {
-            res.json({ console: console.log(error),success: false, message: "Something went wrong. Try again in a few seconds" })
+            res.json({ console: console.log(error), success: false, message: "Something went wrong. Try again in a few seconds" })
         }
     },
     logInUser: async (req, res) => {
         const { email, password, from, image } = req.body.userData
 
         try {
-            const userExist = await User.findOne({email})
-           // const indexPass = userExist.from.indexOf(from)
+            const userExist = await User.findOne({ email })
             if (!userExist) {
                 res.json({ success: false, message: "Your email has not been registered, please Sign up." })
             } else {
                 let passwordMatch = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
-              //  console.log(passwordMatch.length)
                 if (from !== "form-signup") {
                     if (passwordMatch.length > 0) {
                         const userData = {
@@ -89,8 +85,7 @@ const usersControllers = {
                             from: from,
                         }
                         await userExist.save()
-                        const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24})
-                       // console.log(token)
+                        const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 24 })
                         res.json({
                             success: true,
                             from: from,
@@ -105,40 +100,39 @@ const usersControllers = {
                         })
                     }
                 } else {
-                    if (userExist.verification === true) { 
-                    if (passwordMatch.length > 0) {
-                        const userData = {
-                            id: userExist._id,
-                            firstName: userExist.firstName,
-                            lastName: userExist.lastName,
-                            email: userExist.email,
-                            image: userExist.image,
-                            country: userExist.country,
-                            from: from,
+                    if (userExist.verification === true) {
+                        if (passwordMatch.length > 0) {
+                            const userData = {
+                                id: userExist._id,
+                                firstName: userExist.firstName,
+                                lastName: userExist.lastName,
+                                email: userExist.email,
+                                image: userExist.image,
+                                country: userExist.country,
+                                from: from,
+                            }
+                            const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 24 })
+                            await userExist.save()
+                            res.json({
+                                success: true,
+                                from: from,
+                                response: { token, userData },
+                                message: "Welcome " + userData.firstName + " " + userData.lastName,
+                            })
+                        } else {
+                            res.json({
+                                success: false,
+                                from: from,
+                                message: "The username or password does not match"
+                            })
                         }
-                        const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24})
-                      //  console.log(token)
-                        await userExist.save()
-                        res.json({
-                            success: true,
-                            from: from,
-                            response: { token, userData },
-                            message: "Welcome " + userData.firstName + " " + userData.lastName,
-                        })
                     } else {
                         res.json({
                             success: false,
                             from: from,
-                            message: "The username or password does not match"
+                            message: "Please check and verify your email"
                         })
                     }
-                } else {
-                    res.json({
-                        success: false,
-                        from: from,
-                        message: "Please check and verify your email"
-                    })
-                }
                 }
             }
         } catch (error) {
@@ -146,40 +140,38 @@ const usersControllers = {
         }
     },
 
-    verifyMail: async (req,res) => {
-        const string =req.params.string 
-      //  console.log("soy la const string")
-      //  console.log(string)
-        const user = await User.findOne({uniqueString: string})
-     //   console.log(user)
-        if(user) {
+    verifyMail: async (req, res) => {
+        const string = req.params.string
+        const user = await User.findOne({ uniqueString: string })
+        if (user) {
             user.verification = true
             await user.save()
-            res.redirect("http://localhost:3000/login")      
+            res.redirect("http://localhost:3000/login")
         }
-        else{
+        else {
             res.json({
-                success:false,
+                success: false,
                 message: 'email has not been confirmed yet'
             })
         }
     },
-    verifyToken:(req,res) =>{
+    verifyToken: (req, res) => {
 
-    if(req,res){
-        res.json({
-            success:true,
-            response:{
-                id:req.user.id,
-                 firstName:req.user.firstName,
-                 lastName:req.user.lastName,
-                 email:req.user.email, 
-                 from:"token"},
-            messagge:"Welcome " + req.user.firstName + " " + req.user.lastName
-        })
-     } else {
+        if (req, res) {
             res.json({
-                sucess:false,
+                success: true,
+                response: {
+                    id: req.user.id,
+                    firstName: req.user.firstName,
+                    lastName: req.user.lastName,
+                    email: req.user.email,
+                    from: "token"
+                },
+                messagge: "Welcome " + req.user.firstName + " " + req.user.lastName
+            })
+        } else {
+            res.json({
+                sucess: false,
                 message: "Please, do the signIn again"
             })
         }

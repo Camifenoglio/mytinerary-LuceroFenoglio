@@ -152,48 +152,48 @@ const NavBar = () => {
                         {!user ?
                             <Tooltip title="User">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" sx={{ backgroundColor: "rgba(6, 220, 248)", color: "black", height: "6vh", width: "6vh" }} />
-                                    </IconButton>
+                                    <Avatar alt="Remy Sharp" src={process.env.PUBLIC_URL + "/assets/user.png"} sx={{ backgroundColor: "rgba(6, 220, 248)", color: "black", height: "6vh", width: "6vh" }} />
+                                </IconButton>
                             </Tooltip> :
                             <Tooltip title={user.firstName}>
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src={user.image} sx={{ height: "6vh", width: "6vh" }} />
-                            </IconButton>
+                                    <Avatar alt="Remy Sharp" src={user.image} sx={{ height: "6vh", width: "6vh" }} />
+                                </IconButton>
                             </Tooltip>
-                                 }
-                    {/* MENU LOGUEO */}
-                    <Menu
-                        sx={{ mt: '45px' }}
-                        id="menu-appbar"
-                        anchorEl={anchorElUser}
-                        anchorOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                        keepMounted
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                        open={Boolean(anchorElUser)}
-                        onClose={handleCloseUserMenu}
-                    >{user ? (<MenuItem onClick={handleCloseUserMenu}>
+                        }
+                        {/* MENU LOGUEO */}
+                        <Menu
+                            sx={{ mt: '45px' }}
+                            id="menu-appbar"
+                            anchorEl={anchorElUser}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            open={Boolean(anchorElUser)}
+                            onClose={handleCloseUserMenu}
+                        >{user ? (<MenuItem onClick={handleCloseUserMenu}>
 
-                        <Typography
-                            sx={{ fontFamily: "Vollkorn", color: "white" }}
-                            textAlign="center" onClick={logOut}>Log Out {user.firstName}</Typography>
-                    </MenuItem >
-                    ) : settings.map((setting, index) => (
-                        <LinkRouter to={setting.to} key={index} onClick={handleCloseUserMenu}>
-                            <MenuItem>
-                                <Typography textAlign="center" sx={{ fontFamily: 'Vollkorn', color: "white" }}>{setting.name}</Typography>
-                            </MenuItem>
-                        </LinkRouter>
-                    ))}
-                    </Menu>
-                </Box>
-            </Toolbar>
-        </Container>
+                            <Typography
+                                sx={{ fontFamily: "Vollkorn", color: "white" }}
+                                textAlign="center" onClick={logOut}>Log Out {user.firstName}</Typography>
+                        </MenuItem >
+                        ) : settings.map((setting, index) => (
+                            <LinkRouter to={setting.to} key={index} onClick={handleCloseUserMenu}>
+                                <MenuItem>
+                                    <Typography textAlign="center" sx={{ fontFamily: 'Vollkorn', color: "white" }}>{setting.name}</Typography>
+                                </MenuItem>
+                            </LinkRouter>
+                        ))}
+                        </Menu>
+                    </Box>
+                </Toolbar>
+            </Container>
         </AppBar >
     );
 };

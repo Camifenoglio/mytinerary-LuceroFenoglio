@@ -6,7 +6,6 @@ const userAction = {
         return async (dispatch, getState) => {
             try {
                 const res = await axios.post('http://localhost:4000/api/auth/signup', { userData })
-                console.log(res)
                 dispatch({
                     type: 'MESSAGE',
                     payload: {
@@ -24,7 +23,6 @@ const userAction = {
     logInUser: (userData) => {
         return async (dispatch, getState) => {
             const res = await axios.post('http://localhost:4000/api/auth/login', { userData })
-            console.log(res.data.message)
 
             if (res.data.success) {
                 localStorage.setItem("token", res.data.response.token) //tomo el token que le envie desde el back y lo envio al local storage

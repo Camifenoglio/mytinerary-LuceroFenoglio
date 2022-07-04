@@ -15,9 +15,11 @@ import { toast } from 'react-hot-toast';
 import GoogleSignUp from './GoogleSignUp';
 import InputLabel from '@mui/material/InputLabel';
 import NativeSelect from '@mui/material/NativeSelect';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
     const dispatch = useDispatch()
+    const navigate = useNavigate();
 
     const countries = ["unselected", "Argentina", "Brazil", "Colombia", "Chile", "Uruguay", "Spain", "Mexico", "Peru", "France", "Cuba", "Aruba", "Italy", "Netherlands"];
     const [firstName, setFirstName] = useState("")
@@ -29,7 +31,6 @@ function SignUp() {
 
 
     const handleSubmit = async (event) => {
-        console.log(event)
         event.preventDefault()
         const userData = {
             firstName: firstName,
@@ -42,7 +43,6 @@ function SignUp() {
         }
 
         const res = await dispatch(userAction.signUpUser(userData))
-        // console.log(res)
         const errormsg = res.data.message
 
         if (res.data.from === "validator") {
@@ -53,6 +53,7 @@ function SignUp() {
         if (res.data.from === "signup") {
             if (res.data.success) {
                 toast.success(res.data.message)
+                navigate('/login')
             } else {
                 toast.error(res.data.message)
             }
@@ -64,7 +65,6 @@ function SignUp() {
         setImage("")
         setPass("")
     }
-    console.log(country)
     return (
         <div className='itiNotFoundBox' style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
             <Text css={{ fontFamily: "Allura", fontSize: "50px", color: "grey", textShadow: "8px -2px 3px white", margin: "1rem" }}>Register!</Text>
@@ -73,9 +73,12 @@ function SignUp() {
                 <Grid.Container css={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", paddingTop: 0 }} gap={3}>
                     {country === "unselected" ? (
                         <form onSubmit={handleSubmit}>
-                            <Grid css={{ paddingTop: 0, paddingBottom: 0 }}>
+                            <Grid css={{
+                                paddingTop: 0, paddingBottom: 0, height: "30vh", display: "flex",
+                                flexDirection: "column", alignItems: "center", marginTop: "4vh"
+                            }}>
                                 <InputLabel variant="standard" htmlFor="uncontrolled-native"
-                                    sx={{ color: "#808070", fontSize: "14px" }}>
+                                    sx={{ color: "#808070", fontSize: "14px", paddingBottom: "6vh" }}>
                                     Country
                                 </InputLabel>
                                 <NativeSelect
@@ -90,11 +93,10 @@ function SignUp() {
                                         <option key={index}>{country}</option>
                                     ))}
                                 </NativeSelect>
+                                <Text style={{ fontFamily: "Allura", fontSize: "30px", color: "grey", paddingTop: "1rem", width: "60%", textAlign: "center", paddingBottom: "2rem" }}>Select your country and continue your sign up!</Text>
                             </Grid>
                         </form>
-
                     ) : (
-
                         <>
                             <form onSubmit={handleSubmit}>
                                 <Grid>
@@ -104,7 +106,7 @@ function SignUp() {
                                         underlined
                                         width='300px'
                                         type='text'
-                                        color="secondary"
+                                        color="primary"
                                         value={firstName}
                                         labelPlaceholder="First Name"
                                         onChange={e => setFirstName(e.target.value)}

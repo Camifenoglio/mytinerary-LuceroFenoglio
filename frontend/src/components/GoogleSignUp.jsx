@@ -3,10 +3,12 @@ import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import userAction from '../redux/actions/userAction';
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function GoogleSignUp(props) {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     async function handleCallBackResponse(response) {
         let userObject = jwt_decode(response.credential);
@@ -19,7 +21,7 @@ export default function GoogleSignUp(props) {
             password: userObject.sub,
             from: 'google'
         }))
-        console.log(res)
+
         const errormsg = res.data.message
         if (res.data.from === "validator") {
             errormsg.forEach(e => {
@@ -27,11 +29,11 @@ export default function GoogleSignUp(props) {
             })
         }
         if (res.data.success) {
-                toast.success(res.data.message)
-            } else {
-                toast.error(res.data.message)
-            }
-
+            toast.success(res.data.message)
+            navigate('/login')
+        } else {
+            toast.error(res.data.message)
+        }
     }
 
     useEffect(() => {
@@ -43,7 +45,7 @@ export default function GoogleSignUp(props) {
 
         google.accounts.id.renderButton(
             document.getElementById('buttonDiv'),
-            { theme: "outline", size: "medium", type: "icon", shape:"circle" }
+            { theme: "outline", size: "medium", type: "icon", shape: "circle" }
         )
         // eslint-disable-next-line
     }, []);
@@ -51,9 +53,9 @@ export default function GoogleSignUp(props) {
     return (
         <div>
             <div className="g_id_signin"
-            id='buttonDiv'
+                id='buttonDiv'
                 data-text="signup_with"
->
+            >
             </div>
         </div>
     )

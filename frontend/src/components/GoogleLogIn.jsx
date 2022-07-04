@@ -3,25 +3,29 @@ import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import userAction from '../redux/actions/userAction';
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 export default function GoogleLogIn() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     async function handleCallBackResponse(response) {
-        console.log(response.credential);
+
         let userObject = jwt_decode(response.credential);
-        console.log(userObject);
-        const res= await dispatch(userAction.logInUser({
+
+        const res = await dispatch(userAction.logInUser({
             email: userObject.email,
             password: userObject.sub,
             from: 'google'
         }))
 
-            if (res.data.success) {
-                toast.success(res.data.message)
-            } else {
-                toast.error(res.data.message)
-            }
+        if (res.data.success) {
+            toast.success(res.data.message)
+            navigate('/login')
+        } else {
+            toast.error(res.data.message)
+            navigate('/signup')
+        }
 
     }
 
@@ -34,7 +38,7 @@ export default function GoogleLogIn() {
 
         google.accounts.id.renderButton(
             document.getElementById('buttonDiv'),
-            { theme: "outline", size: "medium", type: "icon", shape:"circle", size: "medium" }
+            { theme: "outline", size: "medium", type: "icon", shape: "circle", size: "medium" }
         )
         // eslint-disable-next-line
     }, []);
@@ -42,9 +46,9 @@ export default function GoogleLogIn() {
     return (
         <div>
             <div className="g_id_signin"
-            id='buttonDiv'
+                id='buttonDiv'
                 data-text="signup_with"
->
+            >
             </div>
         </div>
     )

@@ -18,7 +18,6 @@ const itinerariesActions = {
     findItinerariesFromCity: (id) => {
         return async (dispatch, getState) => {
             const res = await axios.get(`http://localhost:4000/api/itinerariesbycities/${id}`)
-            console.log(res)
             dispatch({ type: 'FIND_ITINERARIES_FROM_CITY', payload: res.data.response })
         }
     }
