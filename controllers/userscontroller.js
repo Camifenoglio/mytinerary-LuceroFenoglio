@@ -11,6 +11,7 @@ const usersControllers = {
             const userExist = await User.findOne({ email })
             const verification = false
             const uniqueString = crypto.randomBytes(15).toString('hex')
+            //codigo de 15 caracteres y de tipo hexadecimal q se envia por mail para luego cambiar la verification, utiliza el paquete crypto de nodeJS
             if (userExist) {
                 if (userExist.from.indexOf(from) !== -1) {
                     res.json({
@@ -44,6 +45,7 @@ const usersControllers = {
                     from: [from]
                 })
                 if (from !== 'form-signup') {
+                    newUser.verification = true
                     await newUser.save()
                     res.json({
                         success: true,

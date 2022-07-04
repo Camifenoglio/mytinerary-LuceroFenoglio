@@ -1,7 +1,7 @@
 const joi = require('joi')
 
 const validator = (req, res, next) => {
-    const schema = joi.object({
+    const schema = joi.object({ //estructura de validacion. metodo pa validar 
         firstName: joi.string()
             .min(3)
             .max(20)
@@ -44,6 +44,7 @@ const validator = (req, res, next) => {
         from: joi.string()
     })
     const validation = schema.validate(req.body.userData, { abortEarly: false })
+    //validate: metodo para validar los datos que le pasamos del front y el abortearly pa q realice todas las verificaciones y nos devuelva una unica respuesta en un array. en el primer error de validacion corta y no sigue verificando
     if (validation.error) {
         return res.json({ success: false, from: 'validator', message: validation.error.details, test: validation })
     }
