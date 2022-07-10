@@ -58,18 +58,19 @@ function SignUp() {
                 toast.error(res.data.message)
             }
         }
-
+        if (res.data.success) {
         setFirstName("")
         setLastName("")
         setEmail("")
         setImage("")
         setPass("")
+        }
     }
     return (
-        <div className='itiNotFoundBox' style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-            <Text css={{ fontFamily: "Allura", fontSize: "50px", color: "grey", textShadow: "8px -2px 3px white", margin: "1rem" }}>Register!</Text>
-            <Card isHoverable variant="bordered" css={{ mw: "30rem", backgroundColor: "WhiteSmoke", boxShadow: "0px 1px 20px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1rem" }} className='signup-inBox'>
-                <Text style={{ fontFamily: "Vollkorn", fontSize: "4vh", color: "grey", paddingTop: "1rem" }}>Sign Up</Text>
+        <div className='loginBox' style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-end", paddingRight: "2rem" }}>
+            <Text css={{ fontFamily: "Allura", fontSize: "50px", color: "whitesmoke", margin: "1rem", alignSelf: "center" }}>Register!</Text>
+            <Card isHoverable variant="bordered" css={{ mw: "30rem", backgroundColor: "whitesmoke", boxShadow: "0px 1px 20px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1rem" }} className='signup-inBox'>
+                <Text style={{ fontFamily: "Vollkorn", fontSize: "4vh", color: "whitesmoke", paddingTop: "1rem" }}>Sign Up</Text>
                 <Grid.Container css={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", paddingTop: 0 }} gap={3}>
                     {country === "unselected" ? (
                         <form onSubmit={handleSubmit}>
@@ -78,7 +79,7 @@ function SignUp() {
                                 flexDirection: "column", alignItems: "center", marginTop: "4vh"
                             }}>
                                 <InputLabel variant="standard" htmlFor="uncontrolled-native"
-                                    sx={{ color: "#808070", fontSize: "14px", paddingBottom: "6vh" }}>
+                                    sx={{ color: "whitesmoke", fontSize: "14px", paddingBottom: "6vh" }}>
                                     Country
                                 </InputLabel>
                                 <NativeSelect
@@ -93,12 +94,30 @@ function SignUp() {
                                         <option key={index}>{country}</option>
                                     ))}
                                 </NativeSelect>
-                                <Text style={{ fontFamily: "Allura", fontSize: "30px", color: "grey", paddingTop: "1rem", width: "60%", textAlign: "center", paddingBottom: "2rem" }}>Select your country and continue your sign up!</Text>
+                                <Text style={{ fontFamily: "Vollkorn", fontSize: "20px", color: "whitesmoke", paddingTop: "1rem", width: "60%", textAlign: "center", paddingBottom: "2rem" }}>Select your country and continue your sign up!</Text>
                             </Grid>
                         </form>
                     ) : (
                         <>
                             <form onSubmit={handleSubmit}>
+                                <Grid>
+                                    <InputLabel variant="standard" htmlFor="uncontrolled-native"
+                                        sx={{ color: "whitesmoke", fontSize: "14px"}}>
+                                        Country
+                                    </InputLabel>
+                                    <NativeSelect
+                                        sx={{ width: '300px', color: "#808070" }}
+                                        value={country} onChange={e => setCountry(e.target.value)} defaultValue={30}
+                                        inputProps={{
+                                            name: 'age',
+                                            id: 'uncontrolled-native',
+                                        }}
+                                    >
+                                        {countries.map((country, index) => (
+                                            <option key={index}>{country}</option>
+                                        ))}
+                                    </NativeSelect>
+                                </Grid>
                                 <Grid>
                                     <Input
                                         className='inputForm'
@@ -183,7 +202,7 @@ function SignUp() {
                                     </Button>
                                 </Grid>
                                 <Grid.Container css={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", paddingBottom: "1rem" }} gap={1}>
-                                    <Text style={{ fontFamily: "Vollkorn", fontSize: "15px", color: "grey", paddingTop: "1rem" }}>Or Sign Up with:</Text>
+                                    <Text style={{ fontFamily: "Vollkorn", fontSize: "15px", color: "white", paddingTop: "1rem" }}>Or Sign Up with:</Text>
                                     <Grid className="appsContainer" css={{ paddingTop: "1rem" }}>
                                         <IconButton sx={{ color: "#83F6E1" }} aria-label="facebook icon">
                                             <FacebookIcon />
@@ -197,7 +216,7 @@ function SignUp() {
                                         </IconButton>
                                     </Grid>
                                     <Grid css={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                                        <Text style={{ fontFamily: "Vollkorn", fontSize: "15px", color: "grey" }}>Already have an account?</Text>
+                                        <Text style={{ fontFamily: "Vollkorn", fontSize: "15px", color: "white" }}>Already have an account?</Text>
                                         <LinkRouter to='/login' style={{ textDecoration: "none", color: "#06DCF8" }}>
                                             Log in here
                                         </LinkRouter>

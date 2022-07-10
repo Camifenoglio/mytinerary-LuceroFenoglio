@@ -11,7 +11,8 @@ export default function GoogleSignUp(props) {
     const navigate = useNavigate();
 
     async function handleCallBackResponse(response) {
-        let userObject = jwt_decode(response.credential);
+        //console.log(response)
+        let userObject = jwt_decode(response.credential); //credencial: datos de usuario
         const res = await dispatch(userAction.signUpUser({
             firstName: userObject.given_name,
             lastName: userObject.family_name,

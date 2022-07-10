@@ -38,19 +38,20 @@ function LogIn() {
     }
 
     return (
-        <div className='itiNotFoundBox' style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-            <Text css={{ fontFamily: "Allura", fontSize: "50px", color: "grey", textShadow: "8px -2px 3px white", margin: "1rem" }}>Welcome Back!</Text>
+        <div className='loginBox' style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-end", paddingRight: "2rem" }}>
+            <Text css={{ fontFamily: "Allura", fontSize: "50px", color: "white", textShadow: "0px 0px 3px white", margin: "1rem", alignSelf: "center" }}>Welcome Back!</Text>
             <Card isHoverable variant="bordered" css={{ mw: "30rem", backgroundColor: "WhiteSmoke", boxShadow: "0px 1px 20px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1rem" }} className='signup-inBox'>
-                <Text style={{ fontFamily: "Vollkorn", fontSize: "4vh", color: "grey", paddingTop: "1rem" }}>Log In</Text>
+                <Text style={{ fontFamily: "Vollkorn", fontSize: "4vh", color: "#83F6E1", paddingTop: "1rem" }}>Log In</Text>
                 <Grid.Container css={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }} gap={3}>
                     <form onSubmit={handleSubmit}>
-                        <Grid>
+                        <Grid style={{color: "black"}}>
                             <Input
                                 clearable
                                 underlined
                                 width='250px'
-                                color="primary"
+                                color='default'
                                 labelPlaceholder="Email Adress"
+                                status="warning"
                                 contentRight={
                                     <EmailIcon width="16" height="16" fill="#f5a623" sx={{ color: "#83F6E1" }} />
                                 }
@@ -61,7 +62,6 @@ function LogIn() {
                                 clearable
                                 underlined
                                 width='250px'
-                                color="primary"
                                 labelPlaceholder="Password"
                                 contentRight={
                                     <KeyIcon width="16" height="16" fill="#f5a623" sx={{ color: "#83F6E1" }} />
@@ -76,7 +76,7 @@ function LogIn() {
                     </form>
                 </Grid.Container>
                 <Grid.Container css={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }} gap={1}>
-                    <Text style={{ fontFamily: "Vollkorn", fontSize: "15px", color: "grey", paddingTop: "1rem" }}>Or Log In with:</Text>
+                    <Text style={{ fontFamily: "Vollkorn", fontSize: "15px", color: "whitesmoke", paddingTop: "1rem" }}>Or Log In with:</Text>
                     <Grid className="appsContainer" css={{ paddingTop: "1rem" }}>
                         <IconButton sx={{ color: "#83F6E1" }} aria-label="facebook icon">
                             <FacebookIcon />
@@ -89,7 +89,7 @@ function LogIn() {
                         </IconButton>
                     </Grid>
                     <Grid css={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                        <Text style={{ fontFamily: "Vollkorn", fontSize: "15px", color: "grey" }}>Don't have an account yet?</Text>
+                        <Text style={{ fontFamily: "Vollkorn", fontSize: "15px", color: "white" }}>Don't have an account yet?</Text>
                         <LinkRouter to='/signup' style={{ textDecoration: "none", color: "#06DCF8" }}>
                             Sign up here
                         </LinkRouter>

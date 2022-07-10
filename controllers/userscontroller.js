@@ -69,7 +69,6 @@ const usersControllers = {
     },
     logInUser: async (req, res) => {
         const { email, password, from, image } = req.body.userData
-
         try {
             const userExist = await User.findOne({ email })
             if (!userExist) {
@@ -89,6 +88,7 @@ const usersControllers = {
                         }
                         await userExist.save()
                         const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 24 })
+                        //secretkey variable que junto al metodo sign permite desencriptar el token
                         res.json({
                             success: true,
                             from: from,
@@ -167,6 +167,7 @@ const usersControllers = {
                     id: req.user.id,
                     firstName: req.user.firstName,
                     lastName: req.user.lastName,
+                    image:req.user.image,
                     email: req.user.email,
                     from: "token"
                 },

@@ -34,6 +34,7 @@ function App() {
     if (localStorage.getItem("token") !== null) {
       const token = localStorage.getItem("token")
       dispatch(userAction.verifyToken(token))
+     //verificar si existe algun token almacenado y extraerlo en caso que exista
     }
     // eslint-disable-next-line 
   }, [])

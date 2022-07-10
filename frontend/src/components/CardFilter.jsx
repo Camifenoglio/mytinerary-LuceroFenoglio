@@ -17,11 +17,10 @@ function CardFilter({ propsCityFilter }) {
           className="card"
         >
           <div className='bottomDetails'>
-            <LinkRouter className='buttonLink custom-btn btn fancy' to={`/details/${city._id}`}>
-              <span className="top-key"></span>
-              <span className="text">View More</span>
-              <span className="bottom-key-1"></span>
-              <span className="bottom-key-2"></span>
+            <LinkRouter to={`/details/${city._id}`}>
+            <button className="button buttonCard">
+                    <span className="button-content">View More </span>
+                </button>
             </LinkRouter>
           </div>
 

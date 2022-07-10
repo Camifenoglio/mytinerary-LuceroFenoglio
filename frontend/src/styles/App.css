@@ -39,6 +39,7 @@
 .paragraphHero {
     font-family: "Allura";
     background-color: rgba(6, 220, 248, 0.541);
+    backdrop-filter: blur(5px);
     border-radius: 15px;
     color: white;
     font-size: 6vh;
@@ -112,15 +113,15 @@
     min-height: 65vh;
 }
 
-.inputBox{
+.inputBox {
     display: flex;
-justify-content: flex-end;
-padding-right: 7vw;
-padding-top: 2vh;
+    justify-content: flex-end;
+    padding-right: 7vw;
+    padding-top: 2vh;
 }
 
 .inputSearch {
-    width: 20rem !important ;
+    width: 20rem !important;
     height: 5vh !important;
     border-radius: 15px !important;
     text-align: center !important;
@@ -141,14 +142,14 @@ padding-top: 2vh;
 }
 
 .card {
-    width:28vw;
+    width: 28vw;
     height: 17rem;
     border-radius: 15px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.24);
     overflow: hidden;
     margin: 0.8rem;
-    
+
 }
 
 .card:hover {
@@ -163,7 +164,7 @@ padding-top: 2vh;
     text-align: center;
     transform: translateY(10);
     position: relative;
-    top:40%;
+    top: 40%;
     background: rgba(0, 0, 0, 0.5);
     height: 6rem;
     padding: 10px;
@@ -172,10 +173,10 @@ padding-top: 2vh;
 }
 
 .bottomDetails {
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh;
 
 }
 
@@ -203,8 +204,9 @@ padding: 2vh;
 
 .cardDetail {
     width: 100%;
-    height: 73vh;
+    min-height: 73vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-position: center !important;
@@ -213,140 +215,99 @@ padding: 2vh;
     background-attachment: fixed !important;
     object-fit: cover !important;
 }
+
 .card-title-details {
     font-family: "Allura";
     color: whitesmoke;
-    font-size: 20vh;
-    font-weight: 500;
+    font-size: 60px;
+    font-weight: 600;
     text-shadow: 7px 6px 10px rgb(19, 19, 18);
     text-align: center;
+    padding: 2vh;
 }
+
 .card-country-details {
-    font-family: "Allura";
+    font-family: "Vollkorn";
     color: white;
-    font-size: 10vh;
+    font-size: 15px;
+    width: 50%;
     text-align: center;
-    font-weight: 500;
-    text-shadow: 2px 2px 3px rgb(248, 135, 6);
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.406) !important;
+    /* backdrop-filter: blur(5px) !important; */
+    border-radius: 15px;
+
 }
+
 .buttonDetails {
     margin-top: 5vh !important;
+    margin-bottom: 5vh !important;
 }
+
 .boxDetail {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 /* bottom cities details */
 
-   .fancy {
-    background-color:rgba(0, 0, 0, 0.411);
-    border: 2px solid white;
-    border-radius: 10px;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    margin: 0;
-    outline: none;
-    overflow: visible;
-    padding: 1em 1.5em;
+.button {
     position: relative;
-    text-align: center;
-    text-decoration: none;
-    text-transform: none;
-    transition: all 0.3s ease-in-out;
-    user-select: none;
-    font-size: 12px;
-   }
-   
-   .fancy::before {
-    content: " ";
-    width: 1.5625rem;
-    height: 2px;
-    background: rgba(0, 0, 0, 0.411);
-    top: 50%;
-    left: 1.5em;
+    overflow: hidden;
+    height: 3rem;
+    padding: 0 2rem;
+    border: none;
+    border-radius: 1.5rem;
+    background: rgba(158, 2, 248, 0.307);
+    backdrop-filter: blur(3px);
+    background-size: 400%;
+    color: whitesmoke;
+    font-size: 20px;
+    text-shadow: 1px 1px 3px rgb(13, 14, 14);
+    font-family: "Vollkorn";
+    letter-spacing: 0.05em;
+}
+
+.button:hover::before {
+    transform: scaleX(1);
+}
+
+.button-content {
+    position: relative;
+    z-index: 1;
+}
+
+.button::before {
+    content: '';
     position: absolute;
-    transform: translateY(-50%);
-    transform-origin: center;
-    transition: 0.3s linear, width 0.3s linear;
-   }
-   
-   .fancy .text {
-    font-size: 1.125em;
-    line-height: 1.33333em;
-    padding-left: 2em;
-    display: block;
-    text-align: left;
-    transition: all 0.3s ease-in-out;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: white;
-   }
-   
-   .fancy .top-key {
-    height: 2px;
-    width: 1.5625rem;
-    top: -2px;
-    left: 0.625rem;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.411);
-    transition: width 0.5s ease-out, left 0.3s ease-out;
-   }
-   
-   .fancy .bottom-key-1 {
-    height: 2px;
-    width: 1.5625rem;
-    right: 1.875rem;
-    bottom: -2px;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.411);
-    transition: width 0.5s ease-out, right 0.3s ease-out;
-   }
-   
-   .fancy .bottom-key-2 {
-    height: 2px;
-    width: 0.625rem;
-    right: 0.625rem;
-    bottom: -2px;
-    position: absolute;
-    background:rgba(0, 0, 0, 0.411);
-    transition: width 0.5s ease-out, right 0.3s ease-out;
-   }
-   
-   .fancy:hover {
-    color: white;
-    background: black;
-   }
-   
-   .fancy:hover::before {
-    width: 0.9375rem;
-    background: white;
-   }
-   
-   .fancy:hover .text {
-    color: white;
-    padding-left: 1.5em;
-   }
-   
-   .fancy:hover .top-key {
-    left: -2px;
-    width: 0px;
-   }
-   
-   .fancy:hover .bottom-key-1,
-    .fancy:hover .bottom-key-2 {
-    right: 0;
-    width: 0;
-   }
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    background: linear-gradient(82.3deg,
+            rgb(1, 219, 248) 10.8%,
+            rgba(10, 215, 242, 0.42) 94.3%);
+    transition: all 0.475s;
+}
 
 /* CARD ITINERARY */
+.itinerary-title{
+    padding: 0.3rem 1rem !important;
+    margin-top: 2rem !important;
+    font-family: Vollkorn !important;
+    font-size: 30px !important;
+    color: grey !important;
+    background-color: #83f6e1;
+    font-weight: 700 !important;
+    border-radius: 3rem !important;
+}
 
-.cardItineraryBox{
+.cardItineraryBox {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -354,46 +315,192 @@ padding: 2vh;
     flex-wrap: wrap;
     gap: 2rem;
     align-items: center;
-    padding-top: 5vh;
-    background-image: url(/public/assets/fondoitinerary.jpg);
-    background-size: contain;
+    width: 100%;
 }
+
 .cardBox {
-    background-image: url(/public/assets/travel.png) !important;
-    background-size: 80rem !important;
-    background-position: center  !important;
-    background-repeat: no-repeat !important;
+    background: rgba(0, 0, 0, 0.668) !important;
+    border: none !important;
 }
-.nextui-collapse-title{
-    color:rgb(66, 65, 65) !important;
+
+.nextui-collapse-title {
+    color: black  !important;
     text-align: center;
     font-size: 4vh;
     letter-spacing: 4px;
-
 }
+
 .nextui-collapse--closed {
     background-color: #83f6e1 !important;
+    height: 7vh;
+    width: 100%;
 }
+.boxBodyItinerary{
+    padding-bottom: 0 !important;
+
+}
+.button-like{
+    border: none !important;
+    background-color: transparent !important;
+}
+.nextui-collapse--open{
+    background-color:rgba(235, 226, 226, 0.5) !important;
+}
+
+/* CARD ACTIVITIES */
+.activitiesBox {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap;
+}
+
+.cardActivity {
+    width: 200px;
+    height: 300px;
+    border-radius: 15px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.24);
+    overflow: hidden;
+    margin: 0.8rem !important;
+
+}
+
+.cardActivity:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    transform: scale(1.1);
+}
+
+.cardActBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    transform: translateY(10);
+    position: relative;
+    top: 70%;
+    background: rgba(0, 0, 0, 0.5);
+    height: 15vh;
+    padding: 10px;
+    color: #fff;
+    transition: all 0.75s ease-in;
+}
+
+.cardActivity:hover .cardActivity {
+    transform: translateY(100%);
+}
+
+.cardActName {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    line-height: 33px;
+    margin: 0;
+
+}
+
+.commentsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 1rem;
+    background-color:transparent;
+    border-radius: 15px;
+    color:white;
+    font-weight: 100 !important;
+}
+
+.nameComment{
+    font-weight: 100 !important;
+    font-size: 15px;
+    color: #83F6E1 !important;
+}
+.buttonComment {
+    font-size: 13px;
+    height: 5vh;
+    padding: 0 0.5rem;
+
+}
+
+.commentBox {
+    display: flex;
+    align-items: center !important;
+    margin: 0 !important;
+    padding:0.5rem;
+    width: 100% !important;
+
+}
+
+.inputComment {
+    border: none;
+    border-radius: 15px;
+    padding: 0 !important;
+    margin:0 !important;
+    margin-left: 2vw;
+    background-color: transparent;
+    font-size: medium;
+    font-weight: 400 !important;
+    width: 40vw !important;
+    overflow-wrap: break-word;
+
+}
+.comment{
+    color: black !important
+}
+.inputComment:focus {
+    outline-color: white;
+
+}
+
 
 /* CARD ITINERARY NOT FOUND */
 
-.itiNotFoundBox {
-    background-image: url(/public/assets/fondoitinerary.jpg);
-    background-size: contain;
-    min-height: 75vh;
-}
-
 .botonSignup-in {
-    background-color: #83F6E1 !important ;
-    color: rgb(66, 65, 65)  !important;
+    background-color: #83F6E1 !important;
+    color: rgb(66, 65, 65) !important;
 }
 
 .signup-inBox {
-    background-image: url(/public/assets/travel.png) !important;
+    background: rgba(7, 7, 7, 0.487) !important;
+    border:none !important;
+
+    /* background-image: url(/public/assets/travel.png) !important;
     background-size: 80rem !important;
-    background-position: center  !important;
-    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important; */
     /* min-height: 67vh; */
+}
+
+/* login */
+
+.loginBox{
+    background-image: url("https://i.imgur.com/ppq0jOi.jpg");
+    background-size: cover;
+    background-position: center !important;
+    min-height: 73vh;
+}
+.nextui-c-hzQjrs-hyKnjc-asPlaceholder-true {
+    color: white !important;
+    font-size: 18px !important;
+    font-family: Vollkorn !important;
+}
+.nextui-c-jeuecp{
+color:#83F6E1 !important;
+}
+.nextui-c-iwmZdB-CvrYq-status-warning{
+    --nextui--inputHoverBorderColor: #83F6E1 !important;
+}
+.nextui-c-iwmZdB{
+    --nextui--inputHoverBorderColor: #83F6E1 !important;
+}
+.nextui-c-BDLTQ{
+    color: white !important;
+}
+
+.css-1dmqq7i-MuiNativeSelect-select-MuiInputBase-input-MuiInput-input{
+    font-size: 18px !important;
+    font-family: Vollkorn !important;
 }
 
 @media (max-width: 425px) {
@@ -403,55 +510,72 @@ padding: 2vh;
         gap: 2rem;
         padding-top: 2vh;
     }
+
     .buttonApps {
         display: flex;
         flex-direction: row;
     }
+
     .card-title-details {
         font-size: 6vh !important;
     }
+
     .card-country-details {
-        font-size: 5vh !important;
+        font-size: 15px !important;
+        width: 90% !important;
     }
+
     .card {
         width: 80% !important;
     }
+
     .durationBox {
         gap: 0 !important;
-        margin-top: 0 important!;
+        margin-top: 0 important !;
         margin-bottom: 0 !important;
     }
-    .itineraryperson{
+
+    .itineraryperson {
         margin: 0 !important;
     }
+
     .hashBox {
         gap: 0 !important;
     }
-    .boxBodyItinerary {
-        padding:  0 !important;
-    }
 
+    .boxBodyItinerary {
+        padding: 0 !important;
+    }
 }
 
 @media (max-width: 600px) {
     .card {
         width: 80% !important;
     }
+
     .card-title-details {
         font-size: 7vh !important;
     }
+
     .cardBox {
-        width:90vw !important;
+        width: 90vw !important;
     }
+
     .signup-inBox {
         width: "20rem" !important;
     }
+    .card-country-details {
+        width: 90% !important;
+    }
+    
 }
+
 
 @media (max-width: 768px) {
     .paragraphHero {
         width: 80%;
     }
+
     .inputSearch {
         width: 10rem !important;
     }
@@ -459,8 +583,16 @@ padding: 2vh;
     .card {
         width: 38%;
     }
+
     .card-title-details {
         font-size: 10vh !important;
+    }
+    .loginBox{
+        align-items: center !important;
+        padding-right: 0 !important;
+    }
+    .card-country-details {
+        width: 70% !important;
     }
 }
 
@@ -474,6 +606,6 @@ padding: 2vh;
 
 @media (min-width: 1500px) {
     .card-info {
-       height:20%;
+        height: 20%;
     }
 }

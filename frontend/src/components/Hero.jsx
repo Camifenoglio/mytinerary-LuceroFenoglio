@@ -9,11 +9,8 @@ function Hero() {
             <h2 className="paragraphHero">Find your perfect trip, designed by insiders who know and love their cities!
             </h2>
             <LinkRouter to="/cities" className="buttonDetails">
-                <button className="botonLink fancy">
-                    <span className="top-key"></span>
-                    <span className="text">Let's go!</span>
-                    <span className="bottom-key-1"></span>
-                    <span className="bottom-key-2"></span>
+                <button className="button">
+                    <span className="button-content">LET'S GO! </span>
                 </button>
             </LinkRouter>
         </div>
