@@ -14,7 +14,6 @@ const commentsAction = {
                     }
                 })
                 return res.data
-                    console.log(res)
             } catch (error) {
                 console.log(error)
             }
@@ -22,7 +21,7 @@ const commentsAction = {
     },
     
     modifyComment: (comment) => {
-        console.log(comment)
+
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
             try{
@@ -31,7 +30,7 @@ const commentsAction = {
                         'Authorization': 'Bearer '+token
                     }
                 })
-                console.log(res)
+
 
                 dispatch({
                     type: 'message',
@@ -61,7 +60,7 @@ const commentsAction = {
                 data:{commentId}
 
             })
-            console.log(res)
+
             dispatch({
                 type: 'message',
                 payload: {

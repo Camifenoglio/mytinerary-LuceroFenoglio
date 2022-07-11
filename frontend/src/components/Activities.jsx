@@ -15,6 +15,7 @@ function Activities({ id }) {
       setActivities(actRes);
     }
     response()
+     // eslint-disable-next-line 
   }, [])
 
   return (

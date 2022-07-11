@@ -126,18 +126,20 @@ function Comments({ data }) {
 
             {user ?
                 <div className="commentBox" >
-                    <Avatar
-                        css={{ size: "1rem", alignSelf: "flex-start", marginRight: "1vw" }}
-                        src={user?.image}
-                        zoomed
-                        bordered
-                        color='gradient'
-                    />
-                    <div className="inputComment" ref={inputTextElement} type="text" style={{ color: "black", backgroundColor: "whitesmoke"}} onInput={handleInputText} suppressContentEditableWarning={true} contentEditable>
-                    </div>
-                    <button onClick={addComment} className='button buttonCard buttonComment' style={{marginLeft: "1rem"}}>Cargar</button>
+
+                        <Avatar
+                            css={{ size: "1rem", alignSelf: "flex-start", marginRight: "1vw" }}
+                            src={user?.image}
+                            zoomed
+                            bordered
+                            color='gradient'
+                        />
+                        <div className="inputComment" ref={inputTextElement} type="text" style={{ color: "black", backgroundColor: "whitesmoke" }} onInput={handleInputText} suppressContentEditableWarning={true} contentEditable>
+                        </div>
+
+                    <button onClick={addComment} className='button buttonCard buttonComment' style={{ marginLeft: "1rem" }}>Cargar</button>
                 </div> :
-                <p style={{color: "#83F6E1"}}> You must to be loged to add a comment</p>
+                <p style={{ color: "#83F6E1" }}> You must to be logged in to post a comment</p>
             }
         </div >
 

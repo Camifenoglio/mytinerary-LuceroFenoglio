@@ -426,6 +426,7 @@
 .commentBox {
     display: flex;
     align-items: center !important;
+
     margin: 0 !important;
     padding:0.5rem;
     width: 100% !important;
@@ -528,7 +529,9 @@ color:#83F6E1 !important;
     .card {
         width: 80% !important;
     }
-
+.buttonComment{
+    margin-left: 0 !important;
+}
     .durationBox {
         gap: 0 !important;
         margin-top: 0 important !;

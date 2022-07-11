@@ -59,7 +59,7 @@ const userAction = {
                 })
                     .then(res => {
                         if (res.data.success) {
-                            console.log(res)
+  
                             dispatch({ type: "USER", payload: res.data.response });
                             dispatch({
                                 type: "MESSAGE",
